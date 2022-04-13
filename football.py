@@ -1,7 +1,10 @@
 
-    
-class Player;
-    
+
+
+
+class Player:
+    """_summary_
+    """
     def __init__():
         temp = "hi"
         
@@ -15,10 +18,6 @@ class Opponent(Player):
     temp = "hi"
     
         
-    
-    
-    
-    
     
 class Game: 
     
