@@ -8,8 +8,13 @@ class Pokemon:
         type (str): the type of the pokemon
         speed (int): how fast the pokemon is
    """
-   def __init__(self,health,damage,type,speed):
+   def __init__(self,health,damage,type,speed,choices):
        """initializes a Pokemon and sets it's attributes
+       
+       Args:
+        health (int): health of pokemon
+        damage (int): damage pokemon can do
+        
               """
        
        self.health = health
@@ -19,6 +24,8 @@ class Pokemon:
        self.type = type
        
        self.speed = speed 
+       
+       self.choices = choices
     
 
    def move_set(self,more):
