@@ -117,7 +117,7 @@ class Game:
     def reset():
         temp = "hi"
 
-def main(test,yourmom):
+def main(test,other):
     test = "hi"
 
 if __name__ == "__main__":
@@ -126,42 +126,3 @@ if __name__ == "__main__":
  
  #game.play()
  
-"""Pokemon class:
-    
-    initialize pokemon
-    
-    move set
-    
-    
-    
-    
-    
-    Fight class:
-    
-    player chooses pokemon
-    
-    computer chooses pokemon 
-    
-    player chooses move
-    
-    computer chooses move
-    
-    repeat until pokemon has fainted
-    
-    reset, choose option to keep same pokemon or new ones 
-    
-    """
-
-
-"""charizard
-        
-        what pokemon do you want?
-        display (list of pokemon)
-        user chooses pokemon
-        
-        computer chooses pokemon
-        
-        battle begins!
-        
-        player chooses move 
-    """
