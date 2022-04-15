@@ -11,18 +11,19 @@ class Pokemon:
         speed (int): how fast the pokemon is
         
    """
-   def __init__(self,health,damage,type,speed,choices):
+   def __init__(self,health,type,speed,choices):
        """initializes a Pokemon and sets it's attributes
        
        Args:
         health (int): health of pokemon
-        damage (int): damage pokemon can do
+        type (str): type of pokemon
+        speed (int): speed of pokemon
+        choices (list): list of what pokemon the player can pick 
         
               """
        
        self.health = health
        
-       self.damage = damage 
        
        self.type = type
        
@@ -32,10 +33,47 @@ class Pokemon:
     
 
    def move_set(self,more):
-        """read in from file, depending on what we read, give it a set of moves"""
-        test = "hi"
+        """depending on what pokemon was chosen, use regex to find the name of the
+        chosen pokemon, then take the 4 moves in the same line of that pokemon name"""
         
-       
+        #{name:   , types:{},  damage: }
+
+
+        
+    
+    
+class Player:
+    """Abstract class for player
+    """
+    
+    def turn(self):
+        """Take a turn for the player, pokemon with higher speed attacks first"""
+
+
+class Human(Player):
+    """Class representing the human player
+    
+    Args:
+        Player (class): subclass of Player"""
+    
+    def turn(self):
+        """Player takes a turn, inputs what move they want to attack opponent with
+        """
+        test = "hi"
+    
+
+
+class Computer(Player):
+    """Class representing the computer player
+
+    Args:
+        Player (class): subclass of Player
+    """
+    
+    def turn(self):
+        """computer player takes a turn and chooses a random move to attack with
+        """
+        test = "hi"
        
       
 def read_pokemon(path):
@@ -48,7 +86,7 @@ def read_pokemon(path):
        
      
   
-class Fight:
+class Game:
     """Initializes the battle between the pokemon. Includes move selection and damage            
      calculations
     
@@ -71,11 +109,6 @@ class Fight:
         """
         temp = "hi"
   
-    def accuracy(self,move):
-        """Performs a check to see if the selected move will connect. Random Number Generator for choosing accuracy. 
-        
-        """
-        temp = "hi"
       
     def reset():
         temp = "hi"
@@ -87,6 +120,7 @@ if __name__ == "__main__":
    args = parse_args(sys.argv[1:])
    main(args.file)
  
+ #game.play()
  
 """Pokemon class:
     
@@ -114,3 +148,16 @@ if __name__ == "__main__":
     
     """
 
+
+"""charizard
+        
+        what pokemon do you want?
+        display (list of pokemon)
+        user chooses pokemon
+        
+        computer chooses pokemon
+        
+        battle begins!
+        
+        player chooses move 
+    """
