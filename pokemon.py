@@ -4,8 +4,12 @@ class Pokemon:
    
    Attributes:
         health (int): health of the pokemon
+        attack(str): the name of their attack
+        defense (int): the defense effectiness
+        damage (int): base damage of the pokemon
         type (str): the type of the pokemon
         speed (int): how fast the pokemon is
+        
    """
    def __init__(self,health,type,speed,choices):
        """initializes a Pokemon and sets it's attributes
@@ -122,14 +126,7 @@ if __name__ == "__main__":
  
  #game.play()
  
- 
- 
- 
- 
- 
- 
- 
-    """Pokemon class:
+"""Pokemon class:
     
     initialize pokemon
     
@@ -156,7 +153,7 @@ if __name__ == "__main__":
     """
 
 
-        """charizard
+"""charizard
         
         what pokemon do you want?
         display (list of pokemon)
@@ -167,4 +164,4 @@ if __name__ == "__main__":
         battle begins!
         
         player chooses move 
-        """
+    """
