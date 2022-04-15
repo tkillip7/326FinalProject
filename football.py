@@ -2,7 +2,7 @@
 
 
 
-class Player:
+class Pokemon:
     """_summary_
     """
     def __init__():
@@ -10,16 +10,9 @@ class Player:
         
     def turn():
         temp = "hi"
-        
-class Runningback(Player):
-    temp = "hi"
-
-class Opponent(Player):
-    temp = "hi"
+       
     
-        
-    
-class Game: 
+class Fight: 
     
     def __init__():
         temp = "hi"
@@ -38,31 +31,5 @@ class Game:
     def reset():
         temp = "hi"
     
-    
-        """
-    
-    
-    score:  7                  
-    
-        |    |    |    |    |      
-        |    |    | o  |    |      
-        |    |    |    |    |      
-        |    |    | o  |    |    * 
-        |    |    |    |    |      
-        |    |    | o  |    |      
-        |    |    |    |    |      
-    
-    (player and opponents only move up and down as field scrolls left)
-    (every time player moves up or down, opponents also move up or down randomly)
-    (then the field shuffles 1 block right)
-    
-        |    |    |     
-        | o  |    |     
-        |    |    |     
-        | o  |    |   * 
-        |    |    |     
-        | o  |    |     
-        |    |    |     
-    
-    """
+
     
