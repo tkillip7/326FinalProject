@@ -4,9 +4,12 @@ class Pokemon:
    
    Attributes:
         health (int): health of the pokemon
+        attack(str): the name of their attack
+        defense (int): the defense effectiness
         damage (int): base damage of the pokemon
         type (str): the type of the pokemon
         speed (int): how fast the pokemon is
+        
    """
    def __init__(self,health,damage,type,speed):
        """initializes a Pokemon and sets it's attributes
@@ -78,14 +81,7 @@ if __name__ == "__main__":
    main(args.file)
  
  
- 
- 
- 
- 
- 
- 
- 
-    """Pokemon class:
+"""Pokemon class:
     
     initialize pokemon
     
