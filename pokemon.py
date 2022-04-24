@@ -11,14 +11,14 @@ class Pokemon:
         speed (int): how fast the pokemon is
         
    """
-   def __init__(self,health,type,speed,choices):
+   def __init__(self,health,type,speed,move1,move2,move3,move4):
        """initializes a Pokemon and sets it's attributes
        
        Args:
         health (int): health of pokemon
         type (str): type of pokemon
         speed (int): speed of pokemon
-        choices (list): list of what pokemon the player can pick 
+        
         
               """
        "use pandas here, take the info from each column in the csv file"
@@ -30,7 +30,13 @@ class Pokemon:
        
        self.speed = speed 
        
-       self.choices = choices
+       self.move1 = move1 
+       
+       self.move2 = move2 
+       
+       self.move3 = move3 
+       
+       self.move4 = move4 
     
 
    def move_set(self,more):
@@ -62,12 +68,21 @@ class Human(Player):
     """Class representing the human player
     
     Args:
-        Player (class): subclass of Player"""
+        Player (class): subclass of Player
+    
+    """
     
     def turn(self):
         """Player takes a turn, inputs what move they want to attack opponent with
         determine if it hits, then remove damage from opposing pokemon an display health
-        
+        "Player 1, go!
+                *choose a move*
+                
+                if move isn't super effective, apply base damage
+                if move is weak, apply less damage
+                if move is normal, apply base damage
+                
+                subtract the damage from opponent HP
         """
         test = "hi"
     
@@ -83,6 +98,15 @@ class Computer(Player):
     def turn(self):
         """computer player takes a turn and chooses a random move to attack with
         if it hits, remove damage froom opposiing pokemon and display health
+        
+        "Player 2, go!
+                *choose a move*
+                
+                if move isn't super effective, apply base damage
+                if move is weak, apply less damage
+                if move is normal, apply base damage
+                
+                subtract the damage from opponent HP
         """
         test = "hi"
        
@@ -106,6 +130,21 @@ class Game:
         Args:
             Player (class): the player who's turn it is
         """
+        
+                """
+                while player1.health > 0 or player2.health > 0:
+                if player1 is faster, player1.turn()
+                else player2.turn()
+                
+                "Player 1, go!
+                *choose a move*
+                
+                if move isn't super effective, apply base damage
+                if move is weak, apply less damage
+                if move is normal, apply base damage
+                
+                subtract the damage from opponent HP
+                """
       
       
     def damage_calc(self,move):
