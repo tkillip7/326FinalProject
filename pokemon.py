@@ -147,7 +147,7 @@ class Game:
                 """
       
       
-    def damage_calc(self,move):
+    def __sub__(self,move):
         """Checks the damage the selected move would do to the opposing pokemon.
 	        Accounts for attack Stat, attack power of the move, defense stat, typing, 
    	    Args:
