@@ -21,7 +21,8 @@ class Pokemon:
         choices (list): list of what pokemon the player can pick 
         
               """
-       
+       "use pandas here, take the info from each column in the csv file"
+       "and then set the attribute to that"
        self.health = health
        
        
@@ -35,8 +36,9 @@ class Pokemon:
    def move_set(self,more):
         """depending on what pokemon was chosen, use regex to find the name of the
         chosen pokemon, then take the 4 moves in the same line of that pokemon name"""
-        #PLAN TO INCORPORATE PANDAS HERE
-        #{name:   , types:{},  damage: }
+        #read in csv file, use regex to set moves into variables>
+        
+        
 
 
 def read_pokemon(path):
@@ -64,6 +66,8 @@ class Human(Player):
     
     def turn(self):
         """Player takes a turn, inputs what move they want to attack opponent with
+        determine if it hits, then remove damage from opposing pokemon an display health
+        
         """
         test = "hi"
     
@@ -78,6 +82,7 @@ class Computer(Player):
     
     def turn(self):
         """computer player takes a turn and chooses a random move to attack with
+        if it hits, remove damage froom opposiing pokemon and display health
         """
         test = "hi"
        
@@ -116,9 +121,15 @@ class Game:
       
     def reset():
         temp = "hi"
+        
+    def play():
+        """Play the pokemon game
+        """
 
 def main(test,other):
-    test = "hi"
+    "start game"
+    "do something like game.play()"
+    ""
 
 if __name__ == "__main__":
    args = parse_args(sys.argv[1:])
