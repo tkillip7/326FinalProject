@@ -1,4 +1,4 @@
- 
+import re 
 class Pokemon:
    """ Initializes the 6 pokemon and their attributes.
    
@@ -11,7 +11,7 @@ class Pokemon:
         speed (int): how fast the pokemon is
         
    """
-   def __init__(self,health,type,speed,move1,move2,move3,move4):
+   def __init__(self, line):
        """initializes a Pokemon and sets it's attributes
        
        Args:
@@ -23,20 +23,41 @@ class Pokemon:
               """
        "use pandas here, take the info from each column in the csv file"
        "and then set the attribute to that"
-       self.health = health
+       regex = (r"""(?xm)
+            ^\w+:\s
+            (?P<Pokemon_name>[\w]+)
+            ,\s\w+:\s
+            (?P<Dex_id>[\d]+)
+            ,\s\w+:\s
+            (?P<Type1>[\w]+)
+            ,\s\w+:\s
+            (?P<Type2>[\w]+)
+            ,\s\w+:\s
+            (?P<Hp>[\d]+)
+            ,\s\w+:\s
+            (?P<Atk>[\d]+)
+            ,\s\w+:\s
+            (?P<Def>[\d]+)
+            ,\s\w+:\s
+            (?P<Spe>[\d]+)""")
        
+       pokemon_attributes = re.search(regex, line)
        
-       self.type = type
+       self.pokemon_name = pokemon_attributes.group(1)
        
-       self.speed = speed 
+       self.dex_id = pokemon_attributes.group(2)
        
-       self.move1 = move1 
+       self.type1 = pokemon_attributes.group(3)
        
-       self.move2 = move2 
+       self.type2 = pokemon_attributes.group(4)
        
-       self.move3 = move3 
+       self.hp = pokemon_attributes.group(5)
        
-       self.move4 = move4 
+       self.attack = pokemon_attributes.group(6)
+       
+       self.defense = pokemon_attributes.group(7)
+       
+       self.speed = pokemon_attributes.group(8)
     
 
    def move_set(self,more):
@@ -56,24 +77,12 @@ def read_pokemon(path):
     Args:
         path (str): path to pokemons.txt file
     """      
+    with open(path, "r", encoding="utf-8") as f:   
+         
+        new_list = [Pokemon(line.strip('\n')) for line in f]
+        
+        return new_list
     
-    regex = (r"""(?xm)
-            ^\w+:\s
-            (?P<Pokemon_name>[\w]+)
-            ,\s\w+:\s
-            (?P<Dex_id>[\d]+)
-            ,\s\w+:\s
-            (?P<Type1>[\w]+)
-            ,\s\w+:\s
-            (?P<Type2>[\w]+)
-            ,\s\w+:\s
-            (?P<Hp>[\d]+)
-            ,\s\w+:\s
-            (?P<Atk>[\d]+)
-            ,\s\w+:\s
-            (?P<Def>[\d]+)
-            ,\s\w+:\s
-            (?P<Spe>[\d]+)""")
     
 class Player:
     """Abstract class for player
