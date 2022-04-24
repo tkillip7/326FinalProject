@@ -57,23 +57,23 @@ def read_pokemon(path):
         path (str): path to pokemons.txt file
     """      
     
-    regex = (r"(?xm)\n"
-    r"^\w+:\s\n"
-    r"(?P<Pokemon_name>[\w]+)\n"
-    r",\s\w+:\s\n"
-    r"(?P<Dex_id>[\d]+)\n"
-    r",\s\w+:\s\n"
-    r"(?P<Type1>[\w]+)\n"
-    r",\s\w+:\s\n"
-    r"(?P<Type2>[\w]+)\n"
-    r",\s\w+:\s\n"
-    r"(?P<Hp>[\d]+)\n"
-    r",\s\w+:\s\n"
-    r"(?P<Atk>[\d]+)\n"
-    r",\s\w+:\s\n"
-    r"(?P<Def>[\d]+)\n"
-    r",\s\w+:\s\n"
-    r"(?P<Spe>[\d]+)")
+    regex = (r"""(?xm)
+            ^\w+:\s
+            (?P<Pokemon_name>[\w]+)
+            ,\s\w+:\s
+            (?P<Dex_id>[\d]+)
+            ,\s\w+:\s
+            (?P<Type1>[\w]+)
+            ,\s\w+:\s
+            (?P<Type2>[\w]+)
+            ,\s\w+:\s
+            (?P<Hp>[\d]+)
+            ,\s\w+:\s
+            (?P<Atk>[\d]+)
+            ,\s\w+:\s
+            (?P<Def>[\d]+)
+            ,\s\w+:\s
+            (?P<Spe>[\d]+)""")
     
 class Player:
     """Abstract class for player
