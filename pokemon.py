@@ -40,9 +40,11 @@ class Pokemon:
     
 
    def move_set(self,more):
-        """depending on what pokemon was chosen, use regex to find the name of the
-        chosen pokemon, then take the 4 moves in the same line of that pokemon name"""
-        #read in csv file, use regex to set moves into variables>
+        """depending on what pokemon was chosen, use regex to find the name of 
+        the
+        chosen pokemon, then take the 4 moves in the same line of that pokemon 
+        name"""
+        #read in txt file, use regex to set moves into variables>
         
         
 
@@ -61,7 +63,8 @@ class Player:
     """
     
     def turn(self):
-        """Take a turn for the player, pokemon with higher speed attacks first"""
+        """Take a turn for the player, pokemon with higher speed attacks 
+        first"""
 
 
 class Human(Player):
@@ -73,8 +76,10 @@ class Human(Player):
     """
     
     def turn(self):
-        """Player takes a turn, inputs what move they want to attack opponent with
-        determine if it hits, then remove damage from opposing pokemon an display health
+        """Player takes a turn, inputs what move they want to attack opponent 
+        with
+        determine if it hits, then remove damage from opposing pokemon and 
+        display health
         "Player 1, go!
                 *choose a move*
                 
@@ -116,7 +121,8 @@ class Computer(Player):
      
   
 class Game:
-    """Initializes the battle between the pokemon. Includes move selection and damage            
+    """Initializes the battle between the pokemon. Includes move selection and 
+    damage            
      calculations
     
     """
@@ -149,7 +155,8 @@ class Game:
       
     def __sub__(self,move):
         """Checks the damage the selected move would do to the opposing pokemon.
-	        Accounts for attack Stat, attack power of the move, defense stat, typing, 
+	        Accounts for attack Stat, attack power of the move, defense stat, 
+         typing, 
    	    Args:
       	    arglist (list of str): arguments from the command line.
  	    Returns:
