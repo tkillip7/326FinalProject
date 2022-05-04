@@ -1,4 +1,7 @@
 import re 
+
+import pandas as pd
+
 class Pokemon:
    """ Initializes the 6 pokemon and their attributes.
    
