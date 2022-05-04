@@ -76,8 +76,10 @@ class Pokemon:
        
        #pandas here for the moves
       
-      #merge Pokemon_Moves and Pokemon, left is Dex ID and right is the move
+       #Going to filter df to specific Pokemon ID's so it'll be easier to
+       #access their specific move sets
        df = pd.read_csv("Pokemon_Moves (1).csv")
+       
        df_2 = pd.read_csv("Pokemon (4).csv")
        
        
@@ -130,20 +132,6 @@ class Pokemon:
            self.moves = feraligatr_moves
         
        
-       
-    
-
-   def move_set(self,pokemon):
-        """depending on what pokemon was chosen, use regex to find the name of 
-        the
-        chosen pokemon, then take the 4 moves in the same line of that pokemon 
-        name"""
-        #read in txt file, use regex to set moves into variables>
-        
-        df = pd.read_csv("Pokemon_Moves (1).csv")
-        df_2 = pd.read_csv("Pokemon (4).csv")
-        
-        #merge the two df's based on 
         
         
 
