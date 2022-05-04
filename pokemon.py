@@ -27,7 +27,7 @@ class Pokemon:
        "use pandas here, take the info from each column in the csv file"
        "and then set the attribute to that"
        
-       df = pd.read_csv("Pokemon (4).csv")
+       
        
        regex = (r"""(?xm)
             ^\w+:\s
