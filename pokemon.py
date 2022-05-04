@@ -1,4 +1,5 @@
-import re 
+import re
+from numpy import char 
 
 import pandas as pd
 
@@ -64,14 +65,85 @@ class Pokemon:
        self.defense = pokemon_attributes.group(7)
        
        self.speed = pokemon_attributes.group(8)
+       
+       #initialize list for pokemon moves
+       venasaur_moves = []
+       charizard_moves = []
+       blastoise_moves = []
+       meganium_moves = []
+       typhlosion_moves = []
+       feraligatr_moves = []
+       
+       #pandas here for the moves
+      
+      #merge Pokemon_Moves and Pokemon, left is Dex ID and right is the move
+       df = pd.read_csv("Pokemon_Moves (1).csv")
+       df_2 = pd.read_csv("Pokemon (4).csv")
+       
+       
+       #using pandas to initialize the move list for each pokemon
+       
+       #if the pokemon is venasaur
+       #filter only on Dex_ID 3 for venasaur
+       if self.pokemon_name == "Vensaur":
+         filter_3 = df["Dex_ID"] == 3
+         v_moves_filter = df[filter_3]
+       
+         venasaur_moves = v_moves_filter["Move_Name"].tolist()
+         self.moves = venasaur_moves
+       
+       #do the same for the rest of the pokemon
+       
+       elif self.pokemon_name == "Charizard":
+           filter_6 = df["Dex_ID"] == 6
+           c_moves_filter = df[filter_6]
+           
+           charizard_moves = c_moves_filter["Move_Name"].tolist()
+           self.moves = charizard_moves
+        
+       elif self.pokemon_name == "Blastoise":
+           filter_9 = df["Dex_ID"] == 9
+           b_moves_filter = df[filter_9]
+           
+           blastoise_moves = b_moves_filter["Move_Name"].tolist()
+           self.moves = blastoise_moves
+        
+       elif self.pokemon_name == "Meganium":
+           filter_154 = df["Dex_ID"] == 154
+           m_moves_filter = df[filter_154]
+           
+           meganium_moves = m_moves_filter["Move_Name"].tolist()
+           self.moves = meganium_moves
+        
+       elif self.pokemon_name == "Typhlosion":
+           filter_157 = df["Dex_ID"] == 157
+           t_moves_filter = df[filter_157]
+           
+           typhlosion_moves = t_moves_filter["Move_Name"].tolist()
+           self.moves = typhlosion_moves
+      
+       elif self.pokemon_name == "Feraligatr":
+           filter_160 = df["Dex_ID"] == 160
+           f_moves_filter = df[filter_160]
+           
+           feraligatr_moves = f_moves_filter["Move_Name"].tolist()
+           self.moves = feraligatr_moves
+        
+       
+       
     
 
-   def move_set(self,more):
+   def move_set(self,pokemon):
         """depending on what pokemon was chosen, use regex to find the name of 
         the
         chosen pokemon, then take the 4 moves in the same line of that pokemon 
         name"""
         #read in txt file, use regex to set moves into variables>
+        
+        df = pd.read_csv("Pokemon_Moves (1).csv")
+        df_2 = pd.read_csv("Pokemon (4).csv")
+        
+        #merge the two df's based on 
         
         
 
@@ -145,7 +217,7 @@ class Computer(Player):
                 
                 subtract the damage from opponent HP
         """
-        test = "hi"
+        print("")
        
       
 
