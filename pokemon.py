@@ -65,7 +65,7 @@ class Pokemon:
 
     """
 
-    def __init__(self,health,attack,defense,damage,type,speed,moves):
+    def __init__(self,health,attack,defense,type,speed,moves):
         
         self.health = health
         
@@ -73,7 +73,7 @@ class Pokemon:
         
         self.defense = defense 
         
-        self.damage = damage 
+   
         
         self.type = type
         
@@ -93,7 +93,8 @@ def main(test, other):
     "start game"
     "do something like game.play()"
     ""
-
+    Venasaur = Pokemon(500,100,100,"Grass",10,{"Tackle","Razor Leaf",
+                                                "Sludge Bomb","Petal Dance"})
 
 #if __name__ == "__main__":
 #    args = parse_args(sys.argv[1:])
