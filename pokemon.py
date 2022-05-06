@@ -65,7 +65,27 @@ class Pokemon:
 
     """
 
-  
+    def __init__(self,health,attack,defense,damage,type,speed,moves):
+        
+        self.health = health
+        
+        self.attack = attack 
+        
+        self.defense = defense 
+        
+        self.damage = damage 
+        
+        self.type = type
+        
+        self.speed = speed 
+        
+        self.moves = moves #this is a list
+        
+        
+    
+    def fight(self, pokemon2):
+        
+        print("Hello user!")
     
 
 
