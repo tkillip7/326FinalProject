@@ -86,7 +86,7 @@ class Pokemon:
     def fight(self, pokemon2):
         
         print("Hello user!")
-    
+
 
 
 def main(test, other):
@@ -95,8 +95,8 @@ def main(test, other):
     ""
 
 
-if __name__ == "__main__":
-    args = parse_args(sys.argv[1:])
-    main(args.file)
+#if __name__ == "__main__":
+#    args = parse_args(sys.argv[1:])
+#    main(args.file)
 
   # game.play()
