@@ -83,13 +83,7 @@ class Pokemon:
 
                """
         
-
-        self.name = name
-
-        if (name == "Venesaur"):
-
-            # select that line that starts with Venesaur
-            regex = (r"""(?xm)
+        regex = (r"""(?xm)
                 ^\w+:\s
                 (?P<Pokemon_name>[\w]+)
                 ,\s\w+:\s
@@ -106,7 +100,13 @@ class Pokemon:
                 (?P<Def>[\d]+)
                 ,\s\w+:\s
                 (?P<Spe>[\d]+)""")
+        
+        self.name = name
 
+        if (name == "Venesaur"):
+
+            # select that line that starts with Venesaur
+            
             pokemon_attributes = re.search(regex, line)
 
             self.pokemon_name = pokemon_attributes.group(1)
@@ -128,23 +128,6 @@ class Pokemon:
         elif (name == "Charizard"):
             
             #select the line that starts with Charizard!
-            regex = (r"""(?xm)
-                ^\w+:\s
-                (?P<Pokemon_name>[\w]+)
-                ,\s\w+:\s
-                (?P<Dex_id>[\d]+)
-                ,\s\w+:\s
-                (?P<Type1>[\w]+)
-                ,\s\w+:\s
-                (?P<Type2>[\w]+)
-                ,\s\w+:\s
-                (?P<Hp>[\d]+)
-                ,\s\w+:\s
-                (?P<Atk>[\d]+)
-                ,\s\w+:\s
-                (?P<Def>[\d]+)
-                ,\s\w+:\s
-                (?P<Spe>[\d]+)""")
 
             pokemon_attributes = re.search(regex, line)
 
@@ -167,23 +150,6 @@ class Pokemon:
         elif (name == "Blastoise"):
             
             #select the line that starts with blastoise!
-            regex = (r"""(?xm)
-                ^\w+:\s
-                (?P<Pokemon_name>[\w]+)
-                ,\s\w+:\s
-                (?P<Dex_id>[\d]+)
-                ,\s\w+:\s
-                (?P<Type1>[\w]+)
-                ,\s\w+:\s
-                (?P<Type2>[\w]+)
-                ,\s\w+:\s
-                (?P<Hp>[\d]+)
-                ,\s\w+:\s
-                (?P<Atk>[\d]+)
-                ,\s\w+:\s
-                (?P<Def>[\d]+)
-                ,\s\w+:\s
-                (?P<Spe>[\d]+)""")
 
             pokemon_attributes = re.search(regex, line)
 
@@ -205,23 +171,6 @@ class Pokemon:
         
         elif (name == "Meganium"):
             #select the line that starts with Meganium!
-            regex = (r"""(?xm)
-                ^\w+:\s
-                (?P<Pokemon_name>[\w]+)
-                ,\s\w+:\s
-                (?P<Dex_id>[\d]+)
-                ,\s\w+:\s
-                (?P<Type1>[\w]+)
-                ,\s\w+:\s
-                (?P<Type2>[\w]+)
-                ,\s\w+:\s
-                (?P<Hp>[\d]+)
-                ,\s\w+:\s
-                (?P<Atk>[\d]+)
-                ,\s\w+:\s
-                (?P<Def>[\d]+)
-                ,\s\w+:\s
-                (?P<Spe>[\d]+)""")
 
             pokemon_attributes = re.search(regex, line)
 
@@ -243,23 +192,6 @@ class Pokemon:
         
         elif (name == "Typhlosion"):
             #select the line that starts with Typhlosion
-            regex = (r"""(?xm)
-                ^\w+:\s
-                (?P<Pokemon_name>[\w]+)
-                ,\s\w+:\s
-                (?P<Dex_id>[\d]+)
-                ,\s\w+:\s
-                (?P<Type1>[\w]+)
-                ,\s\w+:\s
-                (?P<Type2>[\w]+)
-                ,\s\w+:\s
-                (?P<Hp>[\d]+)
-                ,\s\w+:\s
-                (?P<Atk>[\d]+)
-                ,\s\w+:\s
-                (?P<Def>[\d]+)
-                ,\s\w+:\s
-                (?P<Spe>[\d]+)""")
 
             pokemon_attributes = re.search(regex, line)
 
@@ -282,23 +214,6 @@ class Pokemon:
         elif (name == "Feraligatr"):
             
             #Select the line that starts with Feraligatr
-            regex = (r"""(?xm)
-                ^\w+:\s
-                (?P<Pokemon_name>[\w]+)
-                ,\s\w+:\s
-                (?P<Dex_id>[\d]+)
-                ,\s\w+:\s
-                (?P<Type1>[\w]+)
-                ,\s\w+:\s
-                (?P<Type2>[\w]+)
-                ,\s\w+:\s
-                (?P<Hp>[\d]+)
-                ,\s\w+:\s
-                (?P<Atk>[\d]+)
-                ,\s\w+:\s
-                (?P<Def>[\d]+)
-                ,\s\w+:\s
-                (?P<Spe>[\d]+)""")
 
             pokemon_attributes = re.search(regex, line)
 
