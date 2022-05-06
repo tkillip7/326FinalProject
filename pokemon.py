@@ -3,61 +3,54 @@ from numpy import char
 
 import pandas as pd
 
-    #So,
-    #We're going to have a 1v1 game, where player chooses a pokemon and computer
-    #chooses pokemon.
-    
-    #When we run the program, it'll start like this (refer to turn methods):
-    
-    #Hello Human!
-    #Please enter your name: (input)
-    #What's up (input)!
-    
-    #Computer needs a name!
-    #Please enter Computer's name: (input)
-    #What's up (input).....
-    #
-    #Player 1, please choose a pokemon (give a list of names, if name )
-    #                                   (isn't valid, tell user to enter again)
-    #
-    #Based on the input, create a Pokemon object based on that 
-    #
-    #What pokemon will Player 2 have?
-    #Based on the input, create a Pokemon object based on that
-    #
-    #
-    #The Pokemon have been selected!
-    #It's (Player 1's pokemon) vs (Player 2's pokemon)!
-    #
-    #
-    #Player 1, what move will you choose? Present the pokemon's movelist
-    #and have player 1 input what move they want, if playeer misspells or
-    #enters a wrong move, tell player that it's not a valid choice
-    #
-    #Player 2, what move will you choose? Same as player 1 instructions.
-    #
-    #Whichever pokemon is faster (compare speeds), they attack first
-    #
-    #
-    #Terminal will print, (Player's pokemon) used (move)! (Other player's pokemon)
-    #has (health) left!
-    #
-    #and then same for opposing pokemon, this continues until health is 0 
-    #
-    #
-    #Here, we can just display a graph of some sort for pandas just for no reason
-    #
-    #Then ask user if he wants to reset, if "yes", then reset, else, say "goodbye"
-    #
-    #
-    
-    
-    
-    
-    
+# So,
+# We're going to have a 1v1 game, where player chooses a pokemon and computer
+# chooses pokemon.
 
-    
-    
+# When we run the program, it'll start like this (refer to turn methods):
+
+# Hello Human!
+# Please enter your name: (input)
+# What's up (input)!
+
+# Computer needs a name!
+# Please enter Computer's name: (input)
+# What's up (input).....
+#
+# Player 1, please choose a pokemon (give a list of names, if name )
+#                                   (isn't valid, tell user to enter again)
+#
+# Based on the input, create a Pokemon object based on that
+#
+# What pokemon will Player 2 have?
+# Based on the input, create a Pokemon object based on that
+#
+#
+# The Pokemon have been selected!
+# It's (Player 1's pokemon) vs (Player 2's pokemon)!
+#
+#
+# Player 1, what move will you choose? Present the pokemon's movelist
+# and have player 1 input what move they want, if playeer misspells or
+# enters a wrong move, tell player that it's not a valid choice
+#
+# Player 2, what move will you choose? Same as player 1 instructions.
+#
+# Whichever pokemon is faster (compare speeds), they attack first
+#
+#
+# Terminal will print, (Player's pokemon) used (move)! (Other player's pokemon)
+# has (health) left!
+#
+# and then same for opposing pokemon, this continues until health is 0
+#
+#
+# Here, we can just display a graph of some sort for pandas just for no reason
+#
+# Then ask user if he wants to reset, if "yes", then reset, else, say "goodbye"
+#
+#
+
 
 class Pokemon:
     """ Initializes the 6 pokemon and their attributes.
@@ -82,7 +75,6 @@ class Pokemon:
 
 
                """
-        
 
         self.name = name
 
@@ -126,8 +118,8 @@ class Pokemon:
             self.speed = pokemon_attributes.group(8)
 
         elif (name == "Charizard"):
-            
-            #select the line that starts with Charizard!
+
+            # select the line that starts with Charizard!
             regex = (r"""(?xm)
                 ^\w+:\s
                 (?P<Pokemon_name>[\w]+)
@@ -163,10 +155,10 @@ class Pokemon:
             self.defense = pokemon_attributes.group(7)
 
             self.speed = pokemon_attributes.group(8)
-        
+
         elif (name == "Blastoise"):
-            
-            #select the line that starts with blastoise!
+
+            # select the line that starts with blastoise!
             regex = (r"""(?xm)
                 ^\w+:\s
                 (?P<Pokemon_name>[\w]+)
@@ -202,9 +194,9 @@ class Pokemon:
             self.defense = pokemon_attributes.group(7)
 
             self.speed = pokemon_attributes.group(8)
-        
+
         elif (name == "Meganium"):
-            #select the line that starts with Meganium!
+            # select the line that starts with Meganium!
             regex = (r"""(?xm)
                 ^\w+:\s
                 (?P<Pokemon_name>[\w]+)
@@ -240,9 +232,9 @@ class Pokemon:
             self.defense = pokemon_attributes.group(7)
 
             self.speed = pokemon_attributes.group(8)
-        
+
         elif (name == "Typhlosion"):
-            #select the line that starts with Typhlosion
+            # select the line that starts with Typhlosion
             regex = (r"""(?xm)
                 ^\w+:\s
                 (?P<Pokemon_name>[\w]+)
@@ -278,10 +270,10 @@ class Pokemon:
             self.defense = pokemon_attributes.group(7)
 
             self.speed = pokemon_attributes.group(8)
-        
+
         elif (name == "Feraligatr"):
-            
-            #Select the line that starts with Feraligatr
+
+            # Select the line that starts with Feraligatr
             regex = (r"""(?xm)
                 ^\w+:\s
                 (?P<Pokemon_name>[\w]+)
@@ -317,7 +309,7 @@ class Pokemon:
             self.defense = pokemon_attributes.group(7)
 
             self.speed = pokemon_attributes.group(8)
-            
+
         # initialize list for pokemon moves
         venasaur_moves = []
         charizard_moves = []
@@ -390,6 +382,7 @@ def read_pokemon(path):
     Args:
         path (str): path to pokemons.txt file
     """
+
     with open(path, "r", encoding="utf-8") as f:
 
         new_list = [Pokemon(line.strip('\n')) for line in f]
@@ -398,7 +391,7 @@ def read_pokemon(path):
 
 
 def __sub__(self):
-    pokemon1 = Pokemon()
+    test = "We'll just do this later"
 
 
 class Player:
@@ -451,56 +444,6 @@ class Computer(Player):
         name = input("Give computer a name: ")
         print(f"What's up {name} ....")
 
-
-class Game:
-    """Initializes the battle between the pokemon. Includes move selection and 
-    damage            
-     calculations
-
-    """
-
-    def __init__(self):
-        temp = "hi"
-
-    def turn(self, Player):
-        """turn for each player
-
-        Args:
-            Player (class): the player who's turn it is
-        """
-
-        """
-            while player1.health > 0 or player2.health > 0:
-            if player1 is faster, player1.turn()
-            else player2.turn()
-
-            "Player 1, go!
-            *choose a move*
-
-            if move isn't super effective, apply base damage
-            if move is weak, apply less damage
-            if move is normal, apply base damage
-
-            subtract the damage from opponent HP
-            """
-
-    def __sub__(self, move):
-        """Checks the damage the selected move would do to the opposing pokemon.
-                Accounts for attack Stat, attack power of the move, defense stat, 
-         typing, 
-            Args:
-            arglist (list of str): arguments from the command line.
-            Returns:
-            namespace: the parsed arguments, as a namespace.
-        """
-        temp = "hi"
-
-    def reset():
-        temp = "hi"
-
-    def play():
-        """Play the pokemon game
-        """
 
 
 def main(test, other):
