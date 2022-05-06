@@ -153,11 +153,13 @@ def read_pokemon(path):
 class Player:
     """Abstract class for player
     """
-    
-    def turn(self):
+    def __init__(self,name):
+        self.name = name 
+        
+    def get_name(self):
         """Take a turn for the player, pokemon with higher speed attacks 
         first"""
-
+        
 
 class Human(Player):
     """Class representing the human player
@@ -166,22 +168,18 @@ class Human(Player):
         Player (class): subclass of Player
     
     """
-    
-    def turn(self):
-        """Player takes a turn, inputs what move they want to attack opponent 
-        with
-        determine if it hits, then remove damage from opposing pokemon and 
-        display health
-        "Player 1, go!
-                *choose a move*
-                
-                if move isn't super effective, apply base damage
-                if move is weak, apply less damage
-                if move is normal, apply base damage
-                
-                subtract the damage from opponent HP
+    def __init__(self,name):
+        super().__init(name)
+        
+    def get_name(self):
         """
-        test = "hi"
+        Give name to human player
+        """
+        print("Hello Human!\n")
+        name = input("Please enter your name: ")
+        print(f"What's up {name}!")
+        
+        
     
 
 
@@ -191,21 +189,17 @@ class Computer(Player):
     Args:
         Player (class): subclass of Player
     """
-    
-    def turn(self):
-        """computer player takes a turn and chooses a random move to attack with
-        if it hits, remove damage froom opposiing pokemon and display health
+    def __init__(self,name):
+        super().__init__(name)
         
-        "Player 2, go!
-                *choose a move*
-                
-                if move isn't super effective, apply base damage
-                if move is weak, apply less damage
-                if move is normal, apply base damage
-                
-                subtract the damage from opponent HP
+    def get_name(self):
         """
-        print("")
+            Give name to computer player
+        """
+        print("Computer needs a name!!\n")
+        name = input("Give computer a name: ")
+        print(f"What's up {name} ....")
+        
        
       
 
