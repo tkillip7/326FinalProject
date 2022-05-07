@@ -1,5 +1,6 @@
 import re
 import random
+import pandas as pd
 regex = (r"""(?xm)
         ^\w+:\s
         (?P<Pokemon_name>[\w]+)
@@ -24,11 +25,26 @@ r = "Pokemon_list.txt"
 new_list = []
 with open(r, "r", encoding="utf-8") as f:   
     new_list = [(line.strip('\n')) for line in f]
-    
+
+#Start of game
+print("Hello player\n")
+print("Here are the pokemon you can choose from: ")
+
+#sequence unpacking
+pokemon_list = ["Venasaur", "Blastoise", "Charizard"]
+first, second, third = pokemon_list
+
+print(f"{first},{second},{third}")
+
 
 #player chooses pokemon
-p_choice= int(input("Which pockemon:"))
+p_choice= int(input("Which pokemon do you want?:"))
 
+choice = False
+
+while choice == False:
+    p_choice = int(input("Which pokemon do you want?"))
+    
 #computer 
 
 c_choice= random.randrange(10)
@@ -88,3 +104,12 @@ speed = pokemon_attributes.group(8)
 #test to see which pokemon was choosen
 print(pokemon_p)
 print(pokemon_c)
+
+
+
+
+
+                
+
+
+
