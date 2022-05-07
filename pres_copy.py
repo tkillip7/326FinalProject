@@ -34,9 +34,9 @@ print("Here are the pokemon you can choose from, press 0-9 for choice: ")
 pokemon_list = ["Venasaur(0)", "Blastoise(1)", "Charizard(2)", "Blastoise(3)",
                 "Meganium(4)","Typhlosion(5)","Feraligatr(6)","Sceptile(7)",
                                                     "Blaziken(8)","Swampert(9)"]
-first, second, third, fourth, fifth, sixth, seventh, eighth, ninth = pokemon_list
+first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth = pokemon_list
 
-print(f"{first},{second},{third},{fourth},{fifth},{sixth},{seventh},{eighth},{ninth}")
+print(f"{first},{second},{third},{fourth},{fifth},{sixth},{seventh},{eighth},{ninth}, {tenth}")
 
 
 
