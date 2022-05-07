@@ -28,22 +28,28 @@ with open(r, "r", encoding="utf-8") as f:
 
 #Start of game
 print("Hello player\n")
-print("Here are the pokemon you can choose from: ")
+print("Here are the pokemon you can choose from, press 0-9 for choice: ")
 
 #sequence unpacking
-pokemon_list = ["Venasaur", "Blastoise", "Charizard"]
-first, second, third = pokemon_list
+pokemon_list = ["Venasaur(0)", "Blastoise(1)", "Charizard(2)", "Blastoise(3)",
+                "Meganium(4)","Typhlosion(5)","Feraligatr(6)","Sceptile(7)",
+                                                    "Blaziken(8)","Swampert(9)"]
+first, second, third, fourth, fifth, sixth, seventh, eighth, ninth = pokemon_list
 
-print(f"{first},{second},{third}")
+print(f"{first},{second},{third},{fourth},{fifth},{sixth},{seventh},{eighth},{ninth}")
+
+
 
 
 #player chooses pokemon
-p_choice= int(input("Which pokemon do you want?:"))
-
 choice = False
 
 while choice == False:
     p_choice = int(input("Which pokemon do you want?"))
+    if p_choice < 0 or p_choice > 9:
+        print("this isn't a valid choice!")
+    else:
+        choice = True
     
 #computer 
 
