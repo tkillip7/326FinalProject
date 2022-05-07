@@ -89,12 +89,13 @@ class Pokemon:
 
 
 
-def main(test, other):
+def main(player1, computer):
     "start game"
     "do something like game.play()"
     ""
     Venasaur = Pokemon(500,100,100,"Grass",10,{"Tackle","Razor Leaf",
                                                 "Sludge Bomb","Petal Dance"})
+    return Venasaur
 
 #if __name__ == "__main__":
 #    args = parse_args(sys.argv[1:])

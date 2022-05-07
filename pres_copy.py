@@ -1,5 +1,6 @@
 import re
 import random
+
 regex = (r"""(?xm)
         ^\w+:\s
         (?P<Pokemon_name>[\w]+)
