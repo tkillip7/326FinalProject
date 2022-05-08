@@ -37,6 +37,7 @@ class Pokemon:
             self.moves = blastoise_moves
         
     def attack(self,Pokemon2,move):
+        
             if move == "Tackle":
                 Pokemon2.hp -= 40
             elif move == "Razor Leaf":
@@ -152,14 +153,110 @@ elif c_choice == 2:
     c_selected = blastoise
 
 print(f"You are facing {c_selected.name}!")
+
+
+
+#the battle begins!
 #fastest pokemon goes first
 
 
-if (selected.spe > c_selected):
-    print()
+if (selected.spe > c_selected.spe):
+    #Player's turn
+    print(f"{selected.name}'s turn! Movelist: {selected.moves}")
+    move_choice = input("What move will you choose?")
+    
+    if move_choice.casefold() == "Tackle":
+        selected.attack(c_selected, "Tackle")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        
+        
+    elif move_choice.casefold() == "Razor Leaf":
+        selected.attack(c_selected, "Razor Leaf")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Water" or c_selected.type2 == "Water":
+            print("It was super effective!")
+            c_selected.hp -= 20
+        elif c_selected.type1 == "Fire" or c_selected.type2 == "Flying":
+            print("It wasn't effective...")
+            c_selected.hp + 20
+    
+    elif move_choice.casefold() == "Sludge Bomb":
+        selected.attack(c_selected, "Sludge Bomb")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        
 
+    elif move_choice.casefold() == "Petal Dance":
+        selected.attack(c_selected, "Petal Dance")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Water" or c_selected.type2 == "Water":
+            print("It was super effective!")
+            c_selected.hp -= 20
+        elif c_selected.type1 == "Fire" or c_selected.type2 == "Flying":
+            print("It wasn't effective...")
+            c_selected.hp + 20
 
-
+    elif move_choice.casefold() == "Flamethrower":
+        selected.attack(c_selected, "Flamethrower")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Grass" or c_selected.type2 == "Grass":
+            print("It was super effective!")
+            c_selected.hp -= 20
+        elif c_selected.type1 == "Water" or c_selected.type2 == "Water":
+            print("It wasn't effective...")
+            c_selected.hp + 20
+    
+    elif move_choice.casefold() == "Air Slash":
+        selected.attack(c_selected, "Air Slash")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Grass" or c_selected.type2 == "Grass":
+            print("It was super effective!")
+            c_selected.hp -= 20
+        
+    
+    elif move_choice.casefold() == "Seismic Toss":
+        selected.attack(c_selected, "Seismic Toss")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Grass" or c_selected.type2 == "Poison":
+            print("It wasn't effective...")
+            c_selected.hp + 20
+    
+    elif move_choice.casefold() == "Slash":
+        selected.attack(c_selected, "Slash")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+    
+    elif move_choice.casefold() == "Rapid Spin":
+        selected.attack(c_selected, "Rapid Spin")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+    
+    elif move_choice.casefold() == "Ice Beam":
+        selected.attack(c_selected, "Ice beam")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Grass" or c_selected.type2 == "Flying":
+            print("It was super effective!")
+            c_selected.hp -= 20
+    
+    elif move_choice.casefold() == "Hydro Pump":
+        selected.attack(c_selected, "Hydro Pump")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Fire" or c_selected.type2 == "Fire":
+            print("It was super effective!")
+            c_selected.hp -= 20
+        elif c_selected.type1 == "Grass" or c_selected.type2 == "Grass":
+            print("It wasn't effective...")
+            c_selected.hp + 20
+    
+    elif move_choice.casefold() == "Aqua Tail":
+        selected.attack(c_selected, "Aqua Tail")
+        print(f"{selected.name} used {move_choice}! {c_selected} now has {c_selected.hp}.")
+        if c_selected.type1 == "Fire" or c_selected.type2 == "Fire":
+            print("It was super effective!")
+            c_selected.hp -= 20
+        elif c_selected.type1 == "Grass" or c_selected.type2 == "Grass":
+            print("It wasn't effective...")
+            c_selected.hp + 20
+else:
+    
+        
 match = re.search(regex, str(new_list[p_choice]))
 
 pokemon_attributes = re.search(regex, str(new_list[p_choice]))
