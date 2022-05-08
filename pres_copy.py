@@ -1,6 +1,72 @@
 import re
 import random
+from numpy import char
 import pandas as pd
+
+class Pokemon:
+    
+    def __init__(self,name,dex_id,type1,type2,hp,atk,defence,spe):
+        self.name = name
+        self.dex_id = dex_id
+        self.type1 = type1
+        self.type2 = type2 
+        self.hp = hp
+        self.atk = atk 
+        self.defence = defence 
+        self.spe = spe 
+        
+        df_2 = pd.read_csv("Pokemon (4).csv")
+        df = pd.read_csv("Pokemon_Moves (1).csv")
+        
+        if (name == "Venasaur"):
+            filter = df["Dex_ID"] == 3
+            v_moves_filter = df[filter]
+            venasaur_moves = v_moves_filter["Move_Name"].tolist()
+            self.moves = venasaur_moves
+        
+        elif (name == "Charizard"):
+            filter = df["Dex_ID"] == 6
+            c_moves_filter = df[filter]
+            charizard_moves = c_moves_filter["Move_Name"].tolist()
+            self.moves = charizard_moves
+        
+        elif (name == "Blastoise"):
+            filter = df["Dex_ID"] == 3
+            b_moves_filter = df[filter]
+            blastoise_moves = b_moves_filter["Move_Name"].tolist()
+            self.moves = blastoise_moves
+        
+    def attack(self,Pokemon2,move):
+            if move == "Tackle":
+                Pokemon2.hp -= 40
+            elif move == "Razor Leaf":
+                Pokemon2.hp -= 55
+            elif move == "Sludge Bomb":
+                Pokemon2.hp -= 90
+            elif move == "Petal Dance":
+                Pokemon2.hp -= 120
+            elif move == "Flamethrower":
+                Pokemon2.hp -= 90
+            elif move == "Air Slash":
+                Pokemon2.hp -= 75
+            elif move == "Seismic Toss":
+                Pokemon2.hp -= 60
+            elif move == "Slash":
+                Pokemon2.hp -= 70
+            elif move == "Rapid Spin":
+                Pokemon2.hp -= 50
+            elif move == "Ice Beam":
+                Pokemon2.hp -= 90
+            elif move == "Hydro Pump":
+                Pokemon2.hp -= 110
+            elif move == "Aqua Tail":
+                Pokemon2.hp -= 90
+            
+            
+    
+    
+    
+    
 regex = (r"""(?xm)
         ^\w+:\s
         (?P<Pokemon_name>[\w]+)
@@ -38,12 +104,15 @@ first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth = poke
 
 print(f"{first},{second},{third},{fourth},{fifth},{sixth},{seventh},{eighth},{ninth}, {tenth}")
 
+#Create an object for each pokemon 
+venasaur = Pokemon("Venasaur",3,"Grass","Poison",80,82,83,80)
+charizard = Pokemon("Charizard",6,"Fire","Flying",78,84,78,100)
+blastoise = Pokemon("Blastoise",9,"Water","N/A",79,83,100,78)
 
 
 
-#player chooses pokemon
+#Making sure the user inputs a valid option
 choice = False
-
 while choice == False:
     p_choice = int(input("Which pokemon do you want?"))
     if p_choice < 0 or p_choice > 9:
@@ -51,12 +120,45 @@ while choice == False:
     else:
         choice = True
     
+#creating a pokemon object based on what pokemon player chose
+
+if p_choice == 0:
+    selected = venasaur
+
+elif p_choice == 1:
+    selected = charizard
+
+elif p_choice == 2:
+    selected = blastoise
+
+print(f"You have chosen {selected.name}!")
+
+
+    
+    
 #computer 
 
 c_choice= random.randrange(10)
 
 
-#player chooses pokemon
+#creating pokemon object for pokemon that computer chose
+if c_choice == 0:
+    c_selected = venasaur
+
+elif c_choice == 1:
+    c_selected = charizard
+    
+elif c_choice == 2:
+    c_selected = blastoise
+
+print(f"You are facing {c_selected.name}!")
+#fastest pokemon goes first
+
+
+if (selected.spe > c_selected):
+    print()
+
+
 
 match = re.search(regex, str(new_list[p_choice]))
 
@@ -110,6 +212,7 @@ speed = pokemon_attributes.group(8)
 #test to see which pokemon was choosen
 print(pokemon_p)
 print(pokemon_c)
+print(pokemon_attributes)
 
 
 
