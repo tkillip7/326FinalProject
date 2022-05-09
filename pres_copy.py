@@ -76,39 +76,51 @@ class Pokemon:
             if move == "Tackle":
                 Pokemon1.attack(Pokemon2,"Tackle")
                 print(f"{Pokemon1.name} used tackle!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Razor Leaf":
                 Pokemon1.attack(Pokemon2,"Razor Leaf")
                 print(f"{Pokemon1.name} used Razor Leaf!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Sludge Bomb":
                 Pokemon1.attack(Pokemon2,"Sludge Bomb")
                 print(f"{Pokemon1.name} used Sludge Bomb!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Petal Dance":
                 Pokemon1.attack(Pokemon2,"Petal Dance")
                 print(f"{Pokemon1.name} used Petal Dance!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Flamethrower":
                 Pokemon1.attack(Pokemon2,"Flamethrower")
                 print(f"{Pokemon1.name} used Flamethrower!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Air Slash":
                 Pokemon1.attack(Pokemon2,"Air Slash")
                 print(f"{Pokemon1.name} used Air Slash!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Seismic Toss":
                 Pokemon1.attack(Pokemon2,"Seismic Toss")
                 print(f"{Pokemon1.name} used Seismic Toss!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Slash":
                 Pokemon1.attack(Pokemon2,"Slash")
                 print(f"{Pokemon1.name} used Slash!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Rapid Spin":
                 Pokemon1.attack(Pokemon2,"Rapid Spin")
                 print(f"{Pokemon1.name} used Rapid Spin!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Ice Beam":
                 Pokemon1.attack(Pokemon2,"Ice Beam")
                 print(f"{Pokemon1.name} used Ice Beam!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Hydro Pump":
                 Pokemon1.attack(Pokemon2,"Hydro Pump")
                 print(f"{Pokemon1.name} used Hydro Pump!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Aqua Tail":
                 Pokemon1.attack(Pokemon2,"Aqua Tail")
                 print(f"{Pokemon1.name} used Aqua Tail!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             
             #Pokemon 2's Turn!
             all_moves = ["Tackle", "Razor Leaf", "Sludge Bomb", "Petal Dance",
@@ -122,33 +134,43 @@ class Pokemon:
             if opp == "Tackle":
                 Pokemon2.attack(Pokemon1,"Tackle")
                 print(f"{Pokemon2.name} used Tackle!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Razor Leaf":
                 Pokemon2.attack(Pokemon1,"Razor Leaf")
                 print(f"{Pokemon2.name} used Razor Leaf!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Sludge Bomb":
                 Pokemon2.attack(Pokemon1,"Sludge Bomb")
                 print(f"{Pokemon2.name} used Sludge Bomb!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Flamethrower":
                 Pokemon2.attack(Pokemon1,"Flamethrower")
                 print(f"{Pokemon2.name} used Flamethrower!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Air Slash":
                 Pokemon2.attack(Pokemon1,"Air Slash")
                 print(f"{Pokemon2.name} used Air Slash!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Seismic Toss":
                 Pokemon2.attack(Pokemon1,"Seismic Toss")
                 print(f"{Pokemon2.name} used Seismic Toss!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Slash":
                 Pokemon2.attack(Pokemon1,"Slash")
                 print(f"{Pokemon2.name} used Slash!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Ice Beam":
                 Pokemon2.attack(Pokemon1,"Ice Beam")
                 print(f"{Pokemon2.name} used Ice Beam!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Hydro Pump":
                 Pokemon2.attack(Pokemon1,"Hydro Pump")
                 print(f"{Pokemon2.name} used Hydro Pump!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
             elif opp == "Aqua Tail":
                 Pokemon2.attack(Pokemon1,"Aqua Tail")
                 print(f"{Pokemon2.name} used Aqua Tail!")
+                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
                 
             
                 
@@ -166,33 +188,43 @@ class Pokemon:
             if opp == "Tackle":
                 Pokemon2.attack(Pokemon1,"Tackle")
                 print(f"{Pokemon2.name} used Tackle!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Razor Leaf":
                 Pokemon2.attack(Pokemon1,"Razor Leaf")
                 print(f"{Pokemon2.name} used Razor Leaf!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Sludge Bomb":
                 Pokemon2.attack(Pokemon1,"Sludge Bomb")
                 print(f"{Pokemon2.name} used Sludge Bomb!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Flamethrower":
                 Pokemon2.attack(Pokemon1,"Flamethrower")
                 print(f"{Pokemon2.name} used Flamethrower!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Air Slash":
                 Pokemon2.attack(Pokemon1,"Air Slash")
                 print(f"{Pokemon2.name} used Air Slash!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Seismic Toss":
                 Pokemon2.attack(Pokemon1,"Seismic Toss")
                 print(f"{Pokemon2.name} used Seismic Toss!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Slash":
                 Pokemon2.attack(Pokemon1,"Slash")
                 print(f"{Pokemon2.name} used Slash!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Ice Beam":
                 Pokemon2.attack(Pokemon1,"Ice Beam")
                 print(f"{Pokemon2.name} used Ice Beam!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Hydro Pump":
                 Pokemon2.attack(Pokemon1,"Hydro Pump")
                 print(f"{Pokemon2.name} used Hydro Pump!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif opp == "Aqua Tail":
                 Pokemon2.attack(Pokemon1,"Aqua Tail")
                 print(f"{Pokemon2.name} used Aqua Tail!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             
             #Pokemon 1's turn
             print(f"{Pokemon1.name}'s turn! Choose a move! {Pokemon1.moves}")
@@ -200,39 +232,51 @@ class Pokemon:
             if move == "Tackle":
                 Pokemon1.attack(Pokemon2,"Tackle")
                 print(f"{Pokemon1.name} used tackle!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Razor Leaf":
                 Pokemon1.attack(Pokemon2,"Razor Leaf")
                 print(f"{Pokemon1.name} used Razor Leaf!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Sludge Bomb":
                 Pokemon1.attack(Pokemon2,"Sludge Bomb")
                 print(f"{Pokemon1.name} used Sludge Bomb!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Petal Dance":
                 Pokemon1.attack(Pokemon2,"Petal Dance")
                 print(f"{Pokemon1.name} used Petal Dance!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Flamethrower":
                 Pokemon1.attack(Pokemon2,"Flamethrower")
                 print(f"{Pokemon1.name} used Flamethrower!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Air Slash":
                 Pokemon1.attack(Pokemon2,"Air Slash")
                 print(f"{Pokemon1.name} used Air Slash!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Seismic Toss":
                 Pokemon1.attack(Pokemon2,"Seismic Toss")
                 print(f"{Pokemon1.name} used Seismic Toss!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Slash":
                 Pokemon1.attack(Pokemon2,"Slash")
                 print(f"{Pokemon1.name} used Slash!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Rapid Spin":
                 Pokemon1.attack(Pokemon2,"Rapid Spin")
                 print(f"{Pokemon1.name} used Rapid Spin!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Ice Beam":
                 Pokemon1.attack(Pokemon2,"Ice Beam")
                 print(f"{Pokemon1.name} used Ice Beam!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Hydro Pump":
                 Pokemon1.attack(Pokemon2,"Hydro Pump")
                 print(f"{Pokemon1.name} used Hydro Pump!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
             elif move == "Aqua Tail":
                 Pokemon1.attack(Pokemon2,"Aqua Tail")
                 print(f"{Pokemon1.name} used Aqua Tail!")
+                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
         
         if Pokemon1.hp <= 0:
             print(f"{Pokemon1.name} fainted!")
@@ -283,9 +327,10 @@ choice = False
 while choice == False:
     print("Hello Player!")
     
-    p_choice = int(input("Which pokemon do you want? Use 0,1,or 2 to choose"))
+    print(f"Which pokemon do you want to use?")
     print(f"{first},{second},{third}")
-    if p_choice < 0 or p_choice > 9:
+    p_choice = int(input("Use 0,1,or 2 to choose"))
+    if p_choice < 0 or p_choice > 2:
         print("this isn't a valid choice!")
     else:
         choice = True
