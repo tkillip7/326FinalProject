@@ -69,6 +69,13 @@ class Pokemon:
 
       while Pokemon1.hp > 0 or Pokemon2.hp > 0:
         # faster pokemon goes first
+        if Pokemon1.hp <= 0:
+                print(f"{Pokemon1.name} has fainted!")
+                break
+        elif Pokemon2.hp <= 0:
+                print(f"{Pokemon2.name} has fainted!")
+                break
+            
         if Pokemon1.spe > Pokemon2.spe:
             # Pokemon 1's turn
             print(f"{Pokemon1.name}'s turn! Choose a move! {Pokemon1.moves}")
@@ -121,11 +128,14 @@ class Pokemon:
                 Pokemon1.attack(Pokemon2, "Aqua Tail")
                 print(f"{Pokemon1.name} used Aqua Tail!")
                 print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
+            
 
             # Pokemon 2's Turn!
             all_moves = ["Tackle", "Razor Leaf", "Sludge Bomb", "Petal Dance",
                              "Flamethrower", "Air Slash", "Seismic Toss", "Slash",
                              "Rapid Spin", "Ice Beam", "Hydro Pump", "Aqua Tail"]
+            
+            
 
             print(f"{Pokemon2.name}'s turn!")
 
@@ -171,11 +181,10 @@ class Pokemon:
                 Pokemon2.attack(Pokemon1, "Aqua Tail")
                 print(f"{Pokemon2.name} used Aqua Tail!")
                 print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
+                
+            
         
-        if Pokemon1.hp <= 0:
-            print(f"{Pokemon1.name} fainted!")
-        elif Pokemon2.hp <= 0:
-            print(f"{Pokemon2.name} fainted")
+      
 
             
                 
@@ -283,10 +292,12 @@ class Pokemon:
                 print(f"{Pokemon1.name} used Aqua Tail!")
                 print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
         
-        if Pokemon1.hp <= 0:
-            print(f"{Pokemon1.name} fainted!")
-        elif Pokemon2.hp <= 0:
-            print(f"{Pokemon2.name} fainted")
+            if Pokemon1.hp <= 0:
+                print(f"{Pokemon1.name} fainted!")
+                break
+            elif Pokemon2.hp <= 0:
+                print(f"{Pokemon2.name} fainted")
+                break
             
             
 
@@ -341,20 +352,34 @@ while choice == False:
         choice = True
 
 
-venasaur.fight(venasaur,charizard)
+
+if p_choice == 0:
+    pokemon1 = venasaur
+elif p_choice == 1:
+    pokemon1 = charizard
+elif p_choice == 2:
+    pokemon1 = blastoise
+
+print(f"You chose {pokemon1.name}!")
 
 
 # computer
 
-c_choice = random.randrange(10)
+c_choice = random.randrange(3)
 
+if c_choice == 0:
+    pokemon2 = venasaur
+elif c_choice == 1:
+    pokemon2 = charizard
+elif c_choice == 2:
+    pokemon2 = blastoise
 
-
+print(f"You are facing {pokemon2.name}!")
 
 # the battle begins!
 # fastest pokemon goes first
 
-
+pokemon1.fight(pokemon1,pokemon2)
 
 
 
@@ -408,6 +433,7 @@ defense = pokemon_attributes.group(7)
 speed = pokemon_attributes.group(8)
 
 # test to see which pokemon was choosen
+print("stats!")
 print(pokemon_p)
 print(pokemon_c)
 print(pokemon_attributes)
