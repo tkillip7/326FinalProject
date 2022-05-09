@@ -1,4 +1,8 @@
 Name,Dex_ID,Type1,Type2,HP,Atk,Def,Spe
 Venesaur,3,Grass,Poison,80,82,83,80
 Charizard,6,Fire,Flying,78,84,78,100
+<<<<<<< HEAD
+=======
+Blastoise,9,Water,,79,83,100,78
+>>>>>>> 7ced6d8e5d290831c7e964e781e2a494945b4ec6
 
