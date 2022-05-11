@@ -115,8 +115,10 @@ class Pokemon:
                 if Pokemon1.spe > Pokemon2.spe:
                     print(f"{Pokemon1.name} goes first! pick a move: {Pokemon1.moves}")
                     move = (input("Type the move: ")).lower()
+                    
                     damage = ((moves_dict[self.dex_id])[move])[1]
                     pokemon2.hp -= damage
+                    
                     turns += 1
                     Pokemon.statuses()
                     next_turn = 2
@@ -126,9 +128,11 @@ class Pokemon:
                     print(f"{Pokemon2.name} goes first!")
                     stall()
                     choice = (str(random.choice(list(moves_dict[self.dex_id])))).lower()
+                    
                     print(f"{Pokemon2.name} chose {choice}!")
                     damage = ((moves_dict[pokemon2.dex_id])[choice])[1]
                     pokemon1.hp -= damage
+                    
                     turns += 1
                     Pokemon.statuses()
                     next_turn = 1
@@ -140,8 +144,10 @@ class Pokemon:
                 
                 print(f"{Pokemon1.name}'s turn! pick a move: {Pokemon1.moves}")
                 move = (input("Type the move: ")).lower()
+                
                 damage = ((moves_dict[self.dex_id])[move])[1]
                 pokemon2.hp -= damage
+                
                 turns += 1
                 Pokemon.statuses()
                 next_turn = 2
@@ -152,10 +158,13 @@ class Pokemon:
                 
                 print(f"{Pokemon2.name}'s turn!")
                 choice = (str(random.choice(list(moves_dict[self.dex_id])))).lower()
+                
                 stall()
+                
                 print(f"{Pokemon2.name} chooses {choice}!")
                 damage = ((moves_dict[pokemon2.dex_id])[str(choice)])[1]
                 pokemon1.hp -= damage
+                
                 turns += 1
                 Pokemon.statuses()
                 next_turn = 1
