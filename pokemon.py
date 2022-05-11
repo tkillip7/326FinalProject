@@ -18,27 +18,7 @@ class Pokemon:
 
         df_2 = pd.read_csv("Pokemons.csv")
         df = pd.read_csv("Pokemon_Moves.csv")
-        # regex = (r"""(?xm)\n
-        #     ^\n
-        #     (?P<dex_Id>[\d+])\n
-        #     , \n
-        #     (?P<move_name>[\w]+?[ \w]+)\n
-        #     ,\n
-        #     (?P<type>[\w]+)\n
-        #     ,\n
-        #     (?P<power>[\d]+)\n
-        #     ,\n
-        #     (?P<accuracy>[\d]+)""")
 
-        # # pokemon file is read
-        # r = "Pokemon_Moves.csv"
-        
-        # new_list = []
-        # with open(r, "r", encoding="utf-8") as f:
-        #     new_list = [(line.strip('\n')) for line in f]
-            
-        # #damage = {}.get(move)
-        
         if (name == "Venasaur"):
             filter = df["Dex_ID"] == 3
             v_moves_filter = df[filter]
@@ -52,12 +32,12 @@ class Pokemon:
             self.moves = charizard_moves
 
         elif (name == "Blastoise"):
-            filter = df["Dex_ID"] == 3
+            filter = df["Dex_ID"] == 9
             b_moves_filter = df[filter]
             blastoise_moves = b_moves_filter["Move_Name"].tolist()
             self.moves = blastoise_moves
 
-    def attack(self, Pokemon2, move):
+    def computer(self, Pokemon2, move):
         
         if move == "Tackle":
             Pokemon2.hp -= 40
@@ -86,233 +66,105 @@ class Pokemon:
 
     def fight(self, Pokemon1, Pokemon2):
         # Start of game
-
-      while Pokemon1.hp > 0 or Pokemon2.hp > 0:
-        # faster pokemon goes first
-        if Pokemon1.hp <= 0:
-                print(f"{Pokemon1.name} has fainted!")
-                break
-        elif Pokemon2.hp <= 0:
-                print(f"{Pokemon2.name} has fainted!")
-                break
-            
-        if Pokemon1.spe > Pokemon2.spe:
-            # Pokemon 1's turn
-            print(f"{Pokemon1.name}'s turn! Choose a move! {Pokemon1.moves}")
-            move = input("Type the move: ")
-            if move == "Tackle":
-                Pokemon1.attack(Pokemon2, "Tackle")
-                print(f"{Pokemon1.name} used tackle!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Razor Leaf":
-                Pokemon1.attack(Pokemon2, "Razor Leaf")
-                print(f"{Pokemon1.name} used Razor Leaf!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Sludge Bomb":
-                Pokemon1.attack(Pokemon2, "Sludge Bomb")
-                print(f"{Pokemon1.name} used Sludge Bomb!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Petal Dance":
-                Pokemon1.attack(Pokemon2, "Petal Dance")
-                print(f"{Pokemon1.name} used Petal Dance!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Flamethrower":
-                Pokemon1.attack(Pokemon2, "Flamethrower")
-                print(f"{Pokemon1.name} used Flamethrower!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Air Slash":
-                Pokemon1.attack(Pokemon2, "Air Slash")
-                print(f"{Pokemon1.name} used Air Slash!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Seismic Toss":
-                Pokemon1.attack(Pokemon2, "Seismic Toss")
-                print(f"{Pokemon1.name} used Seismic Toss!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Slash":
-                Pokemon1.attack(Pokemon2, "Slash")
-                print(f"{Pokemon1.name} used Slash!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Rapid Spin":
-                Pokemon1.attack(Pokemon2, "Rapid Spin")
-                print(f"{Pokemon1.name} used Rapid Spin!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Ice Beam":
-                Pokemon1.attack(Pokemon2, "Ice Beam")
-                print(f"{Pokemon1.name} used Ice Beam!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Hydro Pump":
-                Pokemon1.attack(Pokemon2, "Hydro Pump")
-                print(f"{Pokemon1.name} used Hydro Pump!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Aqua Tail":
-                Pokemon1.attack(Pokemon2, "Aqua Tail")
-                print(f"{Pokemon1.name} used Aqua Tail!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            
-
-            # Pokemon 2's Turn!
-            all_moves = ["Tackle", "Razor Leaf", "Sludge Bomb", "Petal Dance",
-                             "Flamethrower", "Air Slash", "Seismic Toss", "Slash",
-                             "Rapid Spin", "Ice Beam", "Hydro Pump", "Aqua Tail"]
-            
-            
-
-            print(f"{Pokemon2.name}'s turn!")
-
-            opp = random.choice(all_moves)
-            print(opp)
-            if opp == "Tackle":
-                Pokemon2.attack(Pokemon1, "Tackle")
-                print(f"{Pokemon2.name} used Tackle!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Razor Leaf":
-                Pokemon2.attack(Pokemon1, "Razor Leaf")
-                print(f"{Pokemon2.name} used Razor Leaf!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Sludge Bomb":
-                Pokemon2.attack(Pokemon1, "Sludge Bomb")
-                print(f"{Pokemon2.name} used Sludge Bomb!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Flamethrower":
-                Pokemon2.attack(Pokemon1, "Flamethrower")
-                print(f"{Pokemon2.name} used Flamethrower!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Air Slash":
-                Pokemon2.attack(Pokemon1, "Air Slash")
-                print(f"{Pokemon2.name} used Air Slash!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Seismic Toss":
-                Pokemon2.attack(Pokemon1, "Seismic Toss")
-                print(f"{Pokemon2.name} used Seismic Toss!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Slash":
-                Pokemon2.attack(Pokemon1, "Slash")
-                print(f"{Pokemon2.name} used Slash!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Ice Beam":
-                Pokemon2.attack(Pokemon1, "Ice Beam")
-                print(f"{Pokemon2.name} used Ice Beam!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Hydro Pump":
-                Pokemon2.attack(Pokemon1, "Hydro Pump")
-                print(f"{Pokemon2.name} used Hydro Pump!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-            elif opp == "Aqua Tail":
-                Pokemon2.attack(Pokemon1, "Aqua Tail")
-                print(f"{Pokemon2.name} used Aqua Tail!")
-                print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
-                
-        else:
-            
-             # Pokemon 2's Turn!
-            all_moves = ["Tackle", "Razor Leaf", "Sludge Bomb", "Petal Dance",
-                             "Flamethrower", "Air Slash", "Seismic Toss", "Slash",
-                             "Rapid Spin", "Ice Beam", "Hydro Pump", "Aqua Tail"]
-
-            print(f"{Pokemon2.name}'s turn!")
-            
-            opp = random.choice(all_moves)
-            
-            if opp == "Tackle":
-                Pokemon2.attack(Pokemon1,"Tackle")
-                print(f"{Pokemon2.name} used Tackle!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Razor Leaf":
-                Pokemon2.attack(Pokemon1,"Razor Leaf")
-                print(f"{Pokemon2.name} used Razor Leaf!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Sludge Bomb":
-                Pokemon2.attack(Pokemon1,"Sludge Bomb")
-                print(f"{Pokemon2.name} used Sludge Bomb!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Flamethrower":
-                Pokemon2.attack(Pokemon1,"Flamethrower")
-                print(f"{Pokemon2.name} used Flamethrower!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Air Slash":
-                Pokemon2.attack(Pokemon1,"Air Slash")
-                print(f"{Pokemon2.name} used Air Slash!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Seismic Toss":
-                Pokemon2.attack(Pokemon1,"Seismic Toss")
-                print(f"{Pokemon2.name} used Seismic Toss!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Slash":
-                Pokemon2.attack(Pokemon1,"Slash")
-                print(f"{Pokemon2.name} used Slash!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Ice Beam":
-                Pokemon2.attack(Pokemon1,"Ice Beam")
-                print(f"{Pokemon2.name} used Ice Beam!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Hydro Pump":
-                Pokemon2.attack(Pokemon1,"Hydro Pump")
-                print(f"{Pokemon2.name} used Hydro Pump!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif opp == "Aqua Tail":
-                Pokemon2.attack(Pokemon1,"Aqua Tail")
-                print(f"{Pokemon2.name} used Aqua Tail!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            
-            # Pokemon 1's turn
-            print(f"{Pokemon1.name}'s turn! Choose a move! {Pokemon1.moves}")
-            move = input("Type the move: ")
-            if move == "Tackle":
-                Pokemon1.attack(Pokemon2,"Tackle")
-                print(f"{Pokemon1.name} used tackle!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Razor Leaf":
-                Pokemon1.attack(Pokemon2,"Razor Leaf")
-                print(f"{Pokemon1.name} used Razor Leaf!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Sludge Bomb":
-                Pokemon1.attack(Pokemon2,"Sludge Bomb")
-                print(f"{Pokemon1.name} used Sludge Bomb!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Petal Dance":
-                Pokemon1.attack(Pokemon2,"Petal Dance")
-                print(f"{Pokemon1.name} used Petal Dance!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Flamethrower":
-                Pokemon1.attack(Pokemon2,"Flamethrower")
-                print(f"{Pokemon1.name} used Flamethrower!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Air Slash":
-                Pokemon1.attack(Pokemon2,"Air Slash")
-                print(f"{Pokemon1.name} used Air Slash!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Seismic Toss":
-                Pokemon1.attack(Pokemon2,"Seismic Toss")
-                print(f"{Pokemon1.name} used Seismic Toss!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Slash":
-                Pokemon1.attack(Pokemon2,"Slash")
-                print(f"{Pokemon1.name} used Slash!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Rapid Spin":
-                Pokemon1.attack(Pokemon2,"Rapid Spin")
-                print(f"{Pokemon1.name} used Rapid Spin!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Ice Beam":
-                Pokemon1.attack(Pokemon2,"Ice Beam")
-                print(f"{Pokemon1.name} used Ice Beam!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Hydro Pump":
-                Pokemon1.attack(Pokemon2,"Hydro Pump")
-                print(f"{Pokemon1.name} used Hydro Pump!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
-            elif move == "Aqua Tail":
-                Pokemon1.attack(Pokemon2,"Aqua Tail")
-                print(f"{Pokemon1.name} used Aqua Tail!")
-                print(f"{Pokemon2.name} has {Pokemon2.hp} hp left")
+        regex = (r"""(?xm)
+                ^
+                (?P<dex_Id>[\d+])
+                , 
+                (?P<move_name>[\w]+?[ \w]+)
+                ,
+                (?P<type>[\w]+)
+                ,
+                (?P<power>[\d]+)
+                ,
+                (?P<accuracy>[\d]+)""")
+        r = "Pokemon_Moves.csv"
+        new_list = []
+        with open(r, "r", encoding="utf-8") as f:   
+            new_list = [(line.strip("\n")) for line in f]
+        new_list.remove("Dex_ID,Move_Name,Type,Power,Accuracy")
         
-            if Pokemon1.hp <= 0:
-                print(f"{Pokemon1.name} fainted!")
-                break
-            elif Pokemon2.hp <= 0:
-                print(f"{Pokemon2.name} fainted")
-                break
-         
+        dict_3 = {}
+        dict_6 = {}
+        dict_9 = {}
+
+        for i in new_list:
+            moves_attributes = re.search(regex, i)
+            
+            if  moves_attributes == None:
+                    raise ValueError("The address string could not be parsed.")
+            else:
+                dex_id = int(moves_attributes.group(1))
+                move = (moves_attributes.group(2)).lower()
+                type = (moves_attributes.group(3)).lower()
+                power = int(moves_attributes.group(4))
+                accuracy = int(moves_attributes.group(5))
+                
+                if dex_id == 3:
+                    dict_3[f"{move}"] = (type,power,accuracy)
+                elif dex_id == 6:
+                    dict_6[f"{move}"] = (type,power,accuracy)
+                elif dex_id == 9:
+                    dict_9[f"{move}"] = (type,power,accuracy)
+                    
+        moves_dict = {3:dict_3, 6:dict_6, 9:dict_9}
+        turns = 1
+        next_turn = 0
+        while Pokemon1.hp >= 1 and Pokemon2.hp >=1:
+            #first round conditions
+            if turns == 1:
+                if Pokemon1.spe > Pokemon2.spe:
+                    print(f"{Pokemon1.name} goes first! pick a move: {Pokemon1.moves}")
+                    move = (input("Type the move: ")).lower()
+                    damage = ((moves_dict[self.dex_id])[move])[1]
+                    pokemon2.hp -= damage
+                    turns += 1
+                    Pokemon.statuses()
+                    next_turn = 2
+                    stall(.15,3)
+                    print(f"Round {turns}!")
+                else:
+                    print(f"{Pokemon2.name} goes first!")
+                    stall()
+                    choice = (str(random.choice(list(moves_dict[self.dex_id])))).lower()
+                    print(f"{Pokemon2.name} chose {choice}!")
+                    damage = ((moves_dict[pokemon2.dex_id])[choice])[1]
+                    pokemon1.hp -= damage
+                    turns += 1
+                    Pokemon.statuses()
+                    next_turn = 1
+                    stall(.15,3)
+                    print(f"Round {turns}!")
+                    
+            #all proceeding round conditions        
+            if next_turn == 1:
+                
+                print(f"{Pokemon1.name}'s turn! pick a move: {Pokemon1.moves}")
+                move = (input("Type the move: ")).lower()
+                damage = ((moves_dict[self.dex_id])[move])[1]
+                pokemon2.hp -= damage
+                turns += 1
+                Pokemon.statuses()
+                next_turn = 2
+                stall(.15,3)
+                print(f"Round {turns}!")
+                
+            elif next_turn == 2:
+                
+                print(f"{Pokemon2.name}'s turn!")
+                choice = (str(random.choice(list(moves_dict[self.dex_id])))).lower()
+                stall()
+                print(f"{Pokemon2.name} chooses {choice}!")
+                damage = ((moves_dict[pokemon2.dex_id])[str(choice)])[1]
+                pokemon1.hp -= damage
+                turns += 1
+                Pokemon.statuses()
+                next_turn = 1
+                stall(.15,3)
+                print(f"Round {turns}!")   
+                 
+    def statuses():
+        print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")   
+
 def stall(delay = .5, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
 
     while dots !=0:
@@ -320,31 +172,6 @@ def stall(delay = .5, dots = 4): #this is to create the feeling of facing an act
         print('.')
         dots -= 1
             
-
-
-
-regex = (r"""(?xm)\n
-        ^\n
-        (?P<dex_Id>[\d+])\n
-        , \n
-        (?P<move_name>[\w]+?[ \w]+)\n
-        ,\n
-        (?P<type>[\w]+)\n
-        ,\n
-        (?P<power>[\d]+)\n
-        ,\n
-        (?P<accuracy>[\d]+)""")
-
-# pokemon file is read
-r = "Pokemon_Moves.csv"
-new_list = []
-with open(r, "r", encoding="utf-8") as f:
-    new_list = [(line.strip('\n')) for line in f]
-
-
-
-
-
 # Create an object for each pokemon
 venasaur = Pokemon("Venasaur", 3, "Grass", "Poison", 800, 82, 83, 80)
 charizard = Pokemon("Charizard", 6, "Fire", "Flying", 780, 84, 78, 100)
