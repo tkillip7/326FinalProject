@@ -18,26 +18,26 @@ class Pokemon:
 
         df_2 = pd.read_csv("Pokemons.csv")
         df = pd.read_csv("Pokemon_Moves.csv")
-        regex = (r"""(?xm)\n
-            ^\n
-            (?P<dex_Id>[\d+])\n
-            , \n
-            (?P<move_name>[\w]+?[ \w]+)\n
-            ,\n
-            (?P<type>[\w]+)\n
-            ,\n
-            (?P<power>[\d]+)\n
-            ,\n
-            (?P<accuracy>[\d]+)""")
+        # regex = (r"""(?xm)\n
+        #     ^\n
+        #     (?P<dex_Id>[\d+])\n
+        #     , \n
+        #     (?P<move_name>[\w]+?[ \w]+)\n
+        #     ,\n
+        #     (?P<type>[\w]+)\n
+        #     ,\n
+        #     (?P<power>[\d]+)\n
+        #     ,\n
+        #     (?P<accuracy>[\d]+)""")
 
-        # pokemon file is read
-        r = "Pokemon_Moves.csv"
+        # # pokemon file is read
+        # r = "Pokemon_Moves.csv"
         
-        new_list = []
-        with open(r, "r", encoding="utf-8") as f:
-            new_list = [(line.strip('\n')) for line in f]
+        # new_list = []
+        # with open(r, "r", encoding="utf-8") as f:
+        #     new_list = [(line.strip('\n')) for line in f]
             
-        #damage = {}.get(move)
+        # #damage = {}.get(move)
         
         if (name == "Venasaur"):
             filter = df["Dex_ID"] == 3
