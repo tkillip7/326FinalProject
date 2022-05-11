@@ -2,7 +2,7 @@ import re
 import random
 from numpy import char
 import pandas as pd
-
+from time import sleep
 
 class Pokemon:
 
@@ -16,9 +16,29 @@ class Pokemon:
         self.defence = defence
         self.spe = spe
 
-        df_2 = pd.read_csv("Pokemon (4).csv")
-        df = pd.read_csv("Pokemon_Moves (1).csv")
+        df_2 = pd.read_csv("Pokemons.csv")
+        df = pd.read_csv("Pokemon_Moves.csv")
+        regex = (r"""(?xm)\n
+            ^\n
+            (?P<dex_Id>[\d+])\n
+            , \n
+            (?P<move_name>[\w]+?[ \w]+)\n
+            ,\n
+            (?P<type>[\w]+)\n
+            ,\n
+            (?P<power>[\d]+)\n
+            ,\n
+            (?P<accuracy>[\d]+)""")
 
+        # pokemon file is read
+        r = "Pokemon_Moves.csv"
+        
+        new_list = []
+        with open(r, "r", encoding="utf-8") as f:
+            new_list = [(line.strip('\n')) for line in f]
+            
+        #damage = {}.get(move)
+        
         if (name == "Venasaur"):
             filter = df["Dex_ID"] == 3
             v_moves_filter = df[filter]
@@ -38,7 +58,7 @@ class Pokemon:
             self.moves = blastoise_moves
 
     def attack(self, Pokemon2, move):
-
+        
         if move == "Tackle":
             Pokemon2.hp -= 40
         elif move == "Razor Leaf":
@@ -182,12 +202,6 @@ class Pokemon:
                 print(f"{Pokemon2.name} used Aqua Tail!")
                 print(f"{Pokemon1.name} has {Pokemon1.hp} hp left")
                 
-            
-        
-      
-
-            
-                
         else:
             
              # Pokemon 2's Turn!
@@ -298,34 +312,35 @@ class Pokemon:
             elif Pokemon2.hp <= 0:
                 print(f"{Pokemon2.name} fainted")
                 break
-            
+         
+def stall(delay = .5, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
+
+    while dots !=0:
+        sleep(delay) #in seconds
+        print('.')
+        dots -= 1
             
 
-       
 
-regex = (r"""(?xm)
-        ^\w+:\s
-        (?P<Pokemon_name>[\w]+)
-        ,\s\w+:\s
-        (?P<Dex_id>[\d]+)
-        ,\s\w+:\s
-        (?P<Type1>[\w]+)
-        ,\s\w+:\s
-        (?P<Type2>[\w]+)
-        ,\s\w+:\s
-        (?P<Hp>[\d]+)
-        ,\s\w+:\s
-        (?P<Atk>[\d]+)
-        ,\s\w+:\s
-        (?P<Def>[\d]+)
-        ,\s\w+:\s
-        (?P<Spe>[\d]+)""")
+
+regex = (r"""(?xm)\n
+        ^\n
+        (?P<dex_Id>[\d+])\n
+        , \n
+        (?P<move_name>[\w]+?[ \w]+)\n
+        ,\n
+        (?P<type>[\w]+)\n
+        ,\n
+        (?P<power>[\d]+)\n
+        ,\n
+        (?P<accuracy>[\d]+)""")
 
 # pokemon file is read
-r = "Pokemon_list.txt"
+r = "Pokemon_Moves.csv"
 new_list = []
 with open(r, "r", encoding="utf-8") as f:
     new_list = [(line.strip('\n')) for line in f]
+
 
 
 
@@ -342,29 +357,23 @@ first,second,third = lst
 choice = False
 while choice == False:
     print("Hello Player!")
-    
     print(f"Which pokemon do you want to use?")
-    print(f"{first},{second},{third}")
-    p_choice = int(input("Use 0,1,or 2 to choose"))
+    print(f"{first}, {second}, {third}")
+    p_choice = int(input("Use 0 , 1, or 2 to choose: "))
     if p_choice < 0 or p_choice > 2:
         print("this isn't a valid choice!")
     else:
+        if p_choice == 0:
+            pokemon1 = venasaur
+        elif p_choice == 1:
+            pokemon1 = charizard
+        elif p_choice == 2:
+            pokemon1 = blastoise
+        print(f"You chose {pokemon1.name}!")
+        
         choice = True
 
-
-
-if p_choice == 0:
-    pokemon1 = venasaur
-elif p_choice == 1:
-    pokemon1 = charizard
-elif p_choice == 2:
-    pokemon1 = blastoise
-
-print(f"You chose {pokemon1.name}!")
-
-
 # computer
-
 c_choice = random.randrange(3)
 
 if c_choice == 0:
@@ -373,8 +382,9 @@ elif c_choice == 1:
     pokemon2 = charizard
 elif c_choice == 2:
     pokemon2 = blastoise
-
-print(f"You are facing {pokemon2.name}!")
+stall()
+print(f"Your opponent choose {pokemon2.name}!")
+stall(.10,3)
 
 # the battle begins!
 # fastest pokemon goes first
@@ -383,57 +393,4 @@ pokemon1.fight(pokemon1,pokemon2)
 
 
 
-match = re.search(regex, str(new_list[p_choice]))
-
-pokemon_attributes = re.search(regex, str(new_list[p_choice]))
-
-# assignments are made
-pokemon_p = pokemon_attributes.group(0)
-
-pokemon_name = pokemon_attributes.group(1)
-
-dex_id = pokemon_attributes.group(2)
-
-type1 = pokemon_attributes.group(3)
-
-type2 = pokemon_attributes.group(4)
-
-hp = pokemon_attributes.group(5)
-
-attack = pokemon_attributes.group(6)
-
-defense = pokemon_attributes.group(7)
-
-speed = pokemon_attributes.group(8)
-
-# ---------------------
-
-# computer's choosen pokemon
-
-match = re.search(regex, str(new_list[c_choice]))
-
-pokemon_attributes = re.search(regex, str(new_list[c_choice]))
-
-pokemon_c = pokemon_attributes.group(0)
-
-pokemon_name = pokemon_attributes.group(1)
-
-dex_id = pokemon_attributes.group(2)
-
-type1 = pokemon_attributes.group(3)
-
-type2 = pokemon_attributes.group(4)
-
-hp = pokemon_attributes.group(5)
-
-attack = pokemon_attributes.group(6)
-
-defense = pokemon_attributes.group(7)
-
-speed = pokemon_attributes.group(8)
-
-# test to see which pokemon was choosen
-print("stats!")
-print(pokemon_p)
-print(pokemon_c)
-print(pokemon_attributes)
+print("done!")
