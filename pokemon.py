@@ -226,6 +226,7 @@ stall(.10,3)
 
 pokemon1.fight(pokemon1,pokemon2)
 
+#this should be a method within the pokemon class itself 
 #Commenting out the pandas DF, will add it in once we wrap up main function
 """df = pd.read_csv("Pokemons.csv")
 stats = pd.read_csv("Pokemons.csv")
