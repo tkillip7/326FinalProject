@@ -65,8 +65,7 @@ class Pokemon:
             Pokemon2.hp -= 90
     
     def __str__(self):
-        return f'''{self.name}, {self.type1}, {self.type2}, {self.hp}, \
-                                        {self.atk}, {self.spe},{self.defence}'''
+        return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
     def fight(self, Pokemon1, Pokemon2):
         # Start of game
