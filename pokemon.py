@@ -119,25 +119,27 @@ class Pokemon:
                     damage = ((moves_dict[self.dex_id])[move])[1]
                     pokemon2.hp -= damage
                     
-                    turns += 1
-                    Pokemon.statuses()
                     next_turn = 2
+                    turns += 1
+                    
                     stall(.15,3)
                     print(f"Round {turns}!")
+                    Pokemon.statuses()   
                 else:
                     print(f"{Pokemon2.name} goes first!")
                     stall()
-                    choice = (str(random.choice(list(moves_dict[self.dex_id])))).lower()
+                    choice = (str(random.choice(list(moves_dict[pokemon2.dex_id])))).lower()
                     
                     print(f"{Pokemon2.name} chose {choice}!")
                     damage = ((moves_dict[pokemon2.dex_id])[choice])[1]
                     pokemon1.hp -= damage
                     
-                    turns += 1
-                    Pokemon.statuses()
                     next_turn = 1
+                    turns += 1
+                    
                     stall(.15,3)
                     print(f"Round {turns}!")
+                    Pokemon.statuses()   
                     
             #all proceeding round conditions        
             if next_turn == 1:
@@ -148,31 +150,45 @@ class Pokemon:
                 damage = ((moves_dict[self.dex_id])[move])[1]
                 pokemon2.hp -= damage
                 
-                turns += 1
-                Pokemon.statuses()
                 next_turn = 2
+                turns += 1
+                
                 stall(.15,3)
                 print(f"Round {turns}!")
+                Pokemon.statuses()   
                 
             elif next_turn == 2:
                 
                 print(f"{Pokemon2.name}'s turn!")
-                choice = (str(random.choice(list(moves_dict[self.dex_id])))).lower()
+                choice = (str(random.choice(list(moves_dict[Pokemon2.dex_id])))).lower()
                 
                 stall()
                 
                 print(f"{Pokemon2.name} chooses {choice}!")
-                damage = ((moves_dict[pokemon2.dex_id])[str(choice)])[1]
+                damage = ((moves_dict[Pokemon2.dex_id])[str(choice)])[1]
                 pokemon1.hp -= damage
                 
                 turns += 1
-                Pokemon.statuses()
                 next_turn = 1
+                
                 stall(.15,3)
-                print(f"Round {turns}!")   
-                 
+                print(f"Round {turns}!")
+                Pokemon.statuses()   
+         
+            
     def statuses():
-        print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")   
+        if pokemon1.hp <= 0:
+            print("Oh no!")
+            stall()
+            print("{pokemon1} Fainted! \n the player lost! \n")
+            return print("better luck next time...")
+        elif pokemon2.hp <= 0:
+            print("Oh wait!")
+            stall()
+            print("{pokemon2} Fainted! \n You win! \n")
+            return  print("till next time!...")
+        else:
+            print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")   
 
 def stall(delay = .5, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
 
@@ -211,7 +227,9 @@ while choice == False:
 
 # computer
 c_choice = random.randrange(3)
-
+if c_choice == p_choice:
+    while c_choice == p_choice:
+        c_choice = random.randrange(3)
 if c_choice == 0:
     pokemon2 = venasaur
 elif c_choice == 1:
