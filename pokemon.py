@@ -180,12 +180,12 @@ class Pokemon:
         if pokemon1.hp <= 0:
             print("Oh no!")
             stall()
-            print("{pokemon1} Fainted! \n the player lost! \n")
+            print(f"{pokemon1.name} Fainted! \n the player lost! \n")
             return print("better luck next time...")
         elif pokemon2.hp <= 0:
             print("Oh wait!")
             stall()
-            print("{pokemon2} Fainted! \n You win! \n")
+            print(f"{pokemon2.name} Fainted! \n You win! \n")
             return  print("till next time!...")
         else:
             print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")   
