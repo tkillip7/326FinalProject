@@ -166,7 +166,8 @@ class Pokemon:
             print(f"{pokemon2.name} Fainted! \n You win! \n")
             return  print("till next time!...")
         else:
-            print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")   
+            print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")
+               
 
 def stall(delay = .5, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
 
@@ -184,47 +185,66 @@ lst = [venasaur.name,charizard.name,blastoise.name]
 first,second,third = lst
 
 # Making sure the user inputs a valid option
-choice = False
-while choice == False:
-    print("Hello Player!")
-    print(f"Which pokemon do you want to use? Here are the stats")
-    print(venasaur)
-    print(charizard)
-    print(blastoise)
-    print(f"{first}, {second}, {third}")
-    p_choice = int(input("Use 0 , 1, or 2 to choose: "))
-    if p_choice < 0 or p_choice > 2:
-        print("this isn't a valid choice!")
-    else:
-        if p_choice == 0:
-            pokemon1 = venasaur
-        elif p_choice == 1:
-            pokemon1 = charizard
-        elif p_choice == 2:
-            pokemon1 = blastoise
-        print(f"You chose {pokemon1.name}!")
-        
-        choice = True
 
-# computer
-c_choice = random.randrange(3)
-if c_choice == p_choice:
-    while c_choice == p_choice:
-        c_choice = random.randrange(3)
-if c_choice == 0:
-    pokemon2 = venasaur
-elif c_choice == 1:
-    pokemon2 = charizard
-elif c_choice == 2:
-    pokemon2 = blastoise
-stall()
-print(f"Your opponent choose {pokemon2.name}!")
-stall(.10,3)
+replay = True
+while replay:
+    choice = False
+    while choice == False:
+        print("Hello Player!")
+        print(f"Which pokemon do you want to use? Here are the stats")
+        print(venasaur)
+        print(charizard)
+        print(blastoise)
+        print(f"{first}, {second}, {third}")
+        p_choice = int(input("Use 0 , 1, or 2 to choose: "))
+        if p_choice < 0 or p_choice > 2:
+            print("This isn't a valid choice!")
+        else:
+            if p_choice == 0:
+                pokemon1 = venasaur
+            elif p_choice == 1:
+                pokemon1 = charizard
+            elif p_choice == 2:
+                pokemon1 = blastoise
+            print(f"You chose {pokemon1.name}!")
+            
+            choice = True
 
-# the battle begins!
-# fastest pokemon goes first
+    # computer
+    c_choice = random.randrange(3)
+    if c_choice == p_choice:
+        while c_choice == p_choice:
+            c_choice = random.randrange(3)
+    if c_choice == 0:
+        pokemon2 = venasaur
+    elif c_choice == 1:
+        pokemon2 = charizard
+    elif c_choice == 2:
+        pokemon2 = blastoise
+    stall()
+    print(f"Your opponent choose {pokemon2.name}!")
+    stall(.10,3)
 
-pokemon1.fight(pokemon1,pokemon2)
+    # the battle begins!
+    # fastest pokemon goes first
+
+    pokemon1.fight(pokemon1,pokemon2)
+
+    valid = False
+    while not valid:
+        r_choice = input("Do you want to fight again? (Yes/No)\n").lower()
+        if r_choice == "no":
+            replay = False
+            valid = True
+        elif r_choice != "yes":
+            print ("This isn't a valid choice!")
+        else:
+            valid = True
+
+
+
+
+
 
 #this should be a method within the pokemon class itself 
 #Commenting out the pandas DF, will add it in once we wrap up main function

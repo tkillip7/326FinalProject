@@ -2,4 +2,9 @@ Name,Dex_ID,Type1,Type2,HP,Atk,Def,Spe
 Venesaur,3,Grass,Poison,80,82,83,80
 Charizard,6,Fire,Flying,78,84,78,100
 Blastoise,9,Water,,79,83,100,78
-
+Meganium,154,Grass,,80,82,100,80
+Typhlosion,157,Fire,,78,84,78,100
+Feraligatr,160,Water,,85,105,100,78
+Sceptile,254,Grass,,0,85,65,120
+Blaziken,257,Fire,Fighting,80,120,70,80
+Swampert,260,Water,Ground,100,110,90,60
