@@ -37,36 +37,8 @@ class Pokemon:
             blastoise_moves = b_moves_filter["Move_Name"].tolist()
             self.moves = blastoise_moves
 
-    def computer(self, Pokemon2, move):
-        
-        if move == "Tackle":
-            Pokemon2.hp -= 40
-        elif move == "Razor Leaf":
-            Pokemon2.hp -= 55
-        elif move == "Sludge Bomb":
-            Pokemon2.hp -= 90
-        elif move == "Petal Dance":
-            Pokemon2.hp -= 120
-        elif move == "Flamethrower":
-            Pokemon2.hp -= 90
-        elif move == "Air Slash":
-            Pokemon2.hp -= 75
-        elif move == "Seismic Toss":
-            Pokemon2.hp -= 60
-        elif move == "Slash":
-            Pokemon2.hp -= 70
-        elif move == "Rapid Spin":
-            Pokemon2.hp -= 50
-        elif move == "Ice Beam":
-            Pokemon2.hp -= 90
-        elif move == "Hydro Pump":
-            Pokemon2.hp -= 110
-        elif move == "Aqua Tail":
-            Pokemon2.hp -= 90
-    
     def __str__(self):
-        return f'''{self.name}, {self.type1}, {self.type2}, {self.hp}, \
-                                        {self.atk}, {self.spe},{self.defence}'''
+        return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
     def fight(self, Pokemon1, Pokemon2):
         # Start of game
