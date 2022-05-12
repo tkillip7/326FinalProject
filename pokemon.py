@@ -3,6 +3,8 @@ import random
 from numpy import char
 import pandas as pd
 from time import sleep
+import matplotlib.pyplot as plt
+
 
 class Pokemon:
 
@@ -224,6 +226,29 @@ stall(.10,3)
 
 pokemon1.fight(pokemon1,pokemon2)
 
-
+#Commenting out the pandas DF, will add it in once we wrap up main function
+"""df = pd.read_csv("Pokemons.csv")
+stats = pd.read_csv("Pokemons.csv")
+display_question = input("Would you like to see a visual of each pokemons stats? If so enter YES, if enter No")
+if display_question == 'Yes':
+    print ("Here are the HP values", stats.plot.bar(x = "Name", y = "HP", color = 'r'))
+    print ("Here are the Atk values", stats.plot.bar(x = "Name", y = "Atk", colormap = 'Paired'))
+    print ("Here are the Def values", stats.plot.bar(x = "Name", y = "Def"))
+    print ("Here are the Speed values", stats.plot.bar(x = "Name", y = "Spe", color = 'y'))
+elif display_question == 'No':
+    pass
+else:
+    raise ValueError("Please enter 'Yes or 'No")
+    
+df2 = pd.read_csv("Pokemon_Moves.csv")
+userinput = input("Which pokemons moves would you like to see? Enter 1,2 or 3 to see Venasaur,Charizard or Blastoise's moves")
+if userinput == '1':
+     print ("Venasaur's data:\n" ,df2.loc[[0,1,2,3]])
+elif userinput == '2':
+     print ("Charizard's data: \n",df2.loc[[4,5,6,7]])
+elif userinput == '3':
+     print ("Blastoise's data: \n",df2.loc[[8,9,10,11]])
+else:
+    raise ValueError("Please enter a value 1-3 to see the pokemons stats")"""
 
 print("done!")
