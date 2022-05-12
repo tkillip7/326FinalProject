@@ -63,6 +63,10 @@ class Pokemon:
             Pokemon2.hp -= 110
         elif move == "Aqua Tail":
             Pokemon2.hp -= 90
+    
+    def __str__(self):
+        return f'''{self.name}, {self.type1}, {self.type2}, {self.hp}, \
+                                        {self.atk}, {self.spe},{self.defence}'''
 
     def fight(self, Pokemon1, Pokemon2):
         # Start of game
@@ -209,7 +213,10 @@ first,second,third = lst
 choice = False
 while choice == False:
     print("Hello Player!")
-    print(f"Which pokemon do you want to use?")
+    print(f"Which pokemon do you want to use? Here are the stats")
+    print(venasaur)
+    print(charizard)
+    print(blastoise)
     print(f"{first}, {second}, {third}")
     p_choice = int(input("Use 0 , 1, or 2 to choose: "))
     if p_choice < 0 or p_choice > 2:
