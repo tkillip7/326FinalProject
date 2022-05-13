@@ -107,7 +107,7 @@ class Pokemon:
         turns = 1
         next_turn = 0
         while Pokemon1.hp >= 1 and Pokemon2.hp >=1:
-            #first round conditions
+            #first turn conditions
             if turns == 1:
                 if Pokemon1.spe > Pokemon2.spe:
                     print(f"{Pokemon1.name} goes first! pick a move: {Pokemon1.moves}")
@@ -120,7 +120,7 @@ class Pokemon:
                     turns += 1
                     
                     self.stall(int(.5))
-                    print(f"Round {turns}!")
+                    print(f"Turn {turns}!")
                     self.statuses()   
                 else:
                     print(f"{Pokemon2.name} goes first!")
@@ -135,10 +135,10 @@ class Pokemon:
                     turns += 1
                     
                     self.stall(int(.5))
-                    print(f"Round {turns}!")
+                    print(f"Turn {turns}!")
                     self.statuses()   
                     
-            #all proceeding round conditions        
+            #all proceeding turn conditions        
             if next_turn == 1:
                 
                 print(f"{Pokemon1.name}'s turn! pick a move: {Pokemon1.moves}")
@@ -151,7 +151,7 @@ class Pokemon:
                 turns += 1
                 
                 self.stall(int(.15))
-                print(f"Round {turns}!")
+                print(f"Turn {turns}!")
                 self.statuses()   
                 
             elif next_turn == 2:
@@ -169,7 +169,7 @@ class Pokemon:
                 next_turn = 1
                 
                 self.stall(int(.15))
-                print(f"Round {turns}!")
+                print(f"Turn {turns}!")
                 self.statuses()   
          
             
@@ -239,7 +239,7 @@ if __name__ == "__main__":
                 elif p_choice == 2:
                     pokemon1 = blastoise
                 print(f"You chose {pokemon1.name}!")
-                
+
                 choice = True
 
         # computer
@@ -272,6 +272,7 @@ if __name__ == "__main__":
                 print ("This isn't a valid choice!")
             else:
                 valid = True
+                pokemon1.fight(pokemon1,pokemon2)
 
 
 
