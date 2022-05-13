@@ -182,15 +182,16 @@ class Pokemon:
         if pokemon1.hp <= 0:
             print("Oh no!")
             self.stall(int(.5))
-            print(f"{pokemon1.name} Fainted! \n the player lost! \n")
-            return print("better luck next time...")
+            print(f"{pokemon1.name} Fainted! \n\n the player lost! \n\n")
+            return print("Better luck next time...")
         elif pokemon2.hp <= 0:
             print("Oh wait!")
             self.stall(int(.5))
-            print(f"{pokemon2.name} Fainted! \n You win! \n")
-            return  print("till next time!...")
+            print(f"{pokemon2.name} Fainted! \n\n You win! \n\n")
+            return  print("Till next time!...")
         else:
-            print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")
+            print(f"{pokemon1.name}'s HP is: {pokemon1.hp}\n{pokemon2.name}'s HP is: {pokemon2.hp}")
+            print("---------------------------------------------------------")
                
 
     def stall(delay = 1, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
@@ -208,27 +209,31 @@ class Pokemon:
            
 if __name__ == "__main__":
 
-    # Create an object for each pokemon
-    venasaur = Pokemon("Venasaur", 3, "Grass", "Poison", 800, 82, 83, 80)
-    charizard = Pokemon("Charizard", 6, "Fire", "Flying", 780, 84, 78, 100)
-    blastoise = Pokemon("Blastoise", 9, "Water", "N/A", 790, 83, 100, 78)
-
-    lst = [venasaur.name,charizard.name,blastoise.name]
-    first,second,third = lst
-
-    # Making sure the user inputs a valid option
-
     replay = True
     while replay:
+        # Create an object for each pokemon
+        venasaur = Pokemon("Venasaur", 3, "Grass", "Poison", 800, 82, 83, 80)
+        charizard = Pokemon("Charizard", 6, "Fire", "Flying", 780, 84, 78, 100)
+        blastoise = Pokemon("Blastoise", 9, "Water", "N/A", 790, 83, 100, 78)
+
+        lst = [venasaur.name,charizard.name,blastoise.name]
+        first,second,third = lst
+
+        # Making sure the user inputs a valid option
+
+    
         choice = False
         while choice == False:
-            print("Hello Player!")
+            print("\nHello Player!")
+            print("---------------------------------------------------------")
             print(f"Which pokemon do you want to use? Here are the stats")
+            print("---------------------------------------------------------")
             print(venasaur)
             print(charizard)
             print(blastoise)
+            print("---------------------------------------------------------")
             print(f"{first}, {second}, {third}")
-            p_choice = int(input("Use 0 , 1, or 2 to choose: "))
+            p_choice = int(input("\nUse 0 , 1, or 2 to choose respectively: "))
             if p_choice < 0 or p_choice > 2:
                 print("This isn't a valid choice!")
             else:
@@ -254,7 +259,7 @@ if __name__ == "__main__":
         elif c_choice == 2:
             pokemon2 = blastoise
         Pokemon.stall()
-        print(f"Your opponent choose {pokemon2.name}!")
+        print(f"Your opponent chose {pokemon2.name}!")
         Pokemon.stall(.10,3)
 
         # the battle begins!
@@ -264,7 +269,7 @@ if __name__ == "__main__":
 
         valid = False
         while not valid:
-            r_choice = input("Do you want to fight again? (Yes/No)\n").lower()
+            r_choice = input("Do you want to fight again? (Yes/No)\n\n").lower()
             if r_choice == "no":
                 replay = False
                 valid = True
@@ -272,7 +277,7 @@ if __name__ == "__main__":
                 print ("This isn't a valid choice!")
             else:
                 valid = True
-                pokemon1.fight(pokemon1,pokemon2)
+            
 
 
 
@@ -305,4 +310,4 @@ elif userinput == '3':
 else:
     raise ValueError("Please enter a value 1-3 to see the pokemons stats")"""
 
-print("done!")
+print("Thank you for playing!")
