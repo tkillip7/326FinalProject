@@ -7,8 +7,22 @@ import matplotlib.pyplot as plt
 
 
 class Pokemon:
+    """_summary_
+    """
 
     def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe):
+        """_summary_
+
+        Args:
+            name (_type_): _description_
+            dex_id (_type_): _description_
+            type1 (_type_): _description_
+            type2 (_type_): _description_
+            hp (_type_): _description_
+            atk (_type_): _description_
+            defence (_type_): _description_
+            spe (_type_): _description_
+        """
         self.name = name
         self.dex_id = dex_id
         self.type1 = type1
@@ -40,10 +54,15 @@ class Pokemon:
             self.moves = blastoise_moves
 
     def __str__(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
     def fight(self, Pokemon1, Pokemon2):
-        # Start of game
+        
         regex = (r"""(?xm)
                 ^
                 (?P<dex_Id>[\d+])
@@ -155,6 +174,11 @@ class Pokemon:
          
             
     def statuses(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         if pokemon1.hp <= 0:
             print("Oh no!")
             self.stall(int(.5))
@@ -170,13 +194,20 @@ class Pokemon:
                
 
     def stall(delay = 1, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
+        """_summary_
+
+        Args:
+            delay (int, optional): _description_. Defaults to 1.
+            dots (int, optional): _description_. Defaults to 4.
+        """
 
         while dots !=0:
-            sleep(delay) #in seconds
+            sleep(int(delay)) #in seconds
             print('.')
             dots -= 1
            
 if __name__ == "__main__":
+
     # Create an object for each pokemon
     venasaur = Pokemon("Venasaur", 3, "Grass", "Poison", 800, 82, 83, 80)
     charizard = Pokemon("Charizard", 6, "Fire", "Flying", 780, 84, 78, 100)
