@@ -100,12 +100,12 @@ class Pokemon:
                     next_turn = 2
                     turns += 1
                     
-                    stall(.15,3)
+                    self.stall(int(.5))
                     print(f"Round {turns}!")
-                    Pokemon.statuses()   
+                    self.statuses()   
                 else:
                     print(f"{Pokemon2.name} goes first!")
-                    stall()
+                    self.stall(int(.5))
                     choice = (str(random.choice(list(moves_dict[pokemon2.dex_id])))).lower()
                     
                     print(f"{Pokemon2.name} chose {choice}!")
@@ -115,9 +115,9 @@ class Pokemon:
                     next_turn = 1
                     turns += 1
                     
-                    stall(.15,3)
+                    self.stall(int(.5))
                     print(f"Round {turns}!")
-                    Pokemon.statuses()   
+                    self.statuses()   
                     
             #all proceeding round conditions        
             if next_turn == 1:
@@ -131,16 +131,16 @@ class Pokemon:
                 next_turn = 2
                 turns += 1
                 
-                stall(.15,3)
+                self.stall(int(.15))
                 print(f"Round {turns}!")
-                Pokemon.statuses()   
+                self.statuses()   
                 
             elif next_turn == 2:
                 
                 print(f"{Pokemon2.name}'s turn!")
                 choice = (str(random.choice(list(moves_dict[Pokemon2.dex_id])))).lower()
                 
-                stall()
+                self.stall(int(.5))
                 
                 print(f"{Pokemon2.name} chooses {choice}!")
                 damage = ((moves_dict[Pokemon2.dex_id])[str(choice)])[1]
@@ -149,32 +149,32 @@ class Pokemon:
                 turns += 1
                 next_turn = 1
                 
-                stall(.15,3)
+                self.stall(int(.15))
                 print(f"Round {turns}!")
-                Pokemon.statuses()   
+                self.statuses()   
          
             
-    def statuses():
+    def statuses(self):
         if pokemon1.hp <= 0:
             print("Oh no!")
-            stall()
+            self.stall(int(.5))
             print(f"{pokemon1.name} Fainted! \n the player lost! \n")
             return print("better luck next time...")
         elif pokemon2.hp <= 0:
             print("Oh wait!")
-            stall()
+            self.stall(int(.5))
             print(f"{pokemon2.name} Fainted! \n You win! \n")
             return  print("till next time!...")
         else:
             print(f"{pokemon1.name}'s hp is: {pokemon1.hp} and {pokemon2.name}'s hp is: {pokemon2.hp} \n")
                
 
-def stall(delay = .5, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
+    def stall(delay = 1, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
 
-    while dots !=0:
-        sleep(delay) #in seconds
-        print('.')
-        dots -= 1
+        while dots !=0:
+            sleep(delay) #in seconds
+            print('.')
+            dots -= 1
            
 if __name__ == "__main__":
     # Create an object for each pokemon
@@ -222,9 +222,9 @@ if __name__ == "__main__":
             pokemon2 = charizard
         elif c_choice == 2:
             pokemon2 = blastoise
-        stall()
+        Pokemon.stall()
         print(f"Your opponent choose {pokemon2.name}!")
-        stall(.10,3)
+        Pokemon.stall(.10,3)
 
         # the battle begins!
         # fastest pokemon goes first
