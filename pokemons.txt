@@ -1,6 +1,0 @@
-Venasaur vine_whip, razor_leaf, frenzy_plant, headbutt
-Charizard air_slash, dragon_claw, flamethrower, blast_burn
-Blastoise hydro_pump, ice_beam, rapid_spin, surf
-Blaziken sky_uppercut, flamethrower, blaze_kick, aerial_ace
-Swampert surf, earthquake, hydro_pump, ice_punch
-Sceptile leaf_blade, giga_drain, slash, pound
