@@ -175,71 +175,72 @@ def stall(delay = .5, dots = 4): #this is to create the feeling of facing an act
         sleep(delay) #in seconds
         print('.')
         dots -= 1
-            
-# Create an object for each pokemon
-venasaur = Pokemon("Venasaur", 3, "Grass", "Poison", 800, 82, 83, 80)
-charizard = Pokemon("Charizard", 6, "Fire", "Flying", 780, 84, 78, 100)
-blastoise = Pokemon("Blastoise", 9, "Water", "N/A", 790, 83, 100, 78)
+           
+if __name__ == "__main__":
+    # Create an object for each pokemon
+    venasaur = Pokemon("Venasaur", 3, "Grass", "Poison", 800, 82, 83, 80)
+    charizard = Pokemon("Charizard", 6, "Fire", "Flying", 780, 84, 78, 100)
+    blastoise = Pokemon("Blastoise", 9, "Water", "N/A", 790, 83, 100, 78)
 
-lst = [venasaur.name,charizard.name,blastoise.name]
-first,second,third = lst
+    lst = [venasaur.name,charizard.name,blastoise.name]
+    first,second,third = lst
 
-# Making sure the user inputs a valid option
+    # Making sure the user inputs a valid option
 
-replay = True
-while replay:
-    choice = False
-    while choice == False:
-        print("Hello Player!")
-        print(f"Which pokemon do you want to use? Here are the stats")
-        print(venasaur)
-        print(charizard)
-        print(blastoise)
-        print(f"{first}, {second}, {third}")
-        p_choice = int(input("Use 0 , 1, or 2 to choose: "))
-        if p_choice < 0 or p_choice > 2:
-            print("This isn't a valid choice!")
-        else:
-            if p_choice == 0:
-                pokemon1 = venasaur
-            elif p_choice == 1:
-                pokemon1 = charizard
-            elif p_choice == 2:
-                pokemon1 = blastoise
-            print(f"You chose {pokemon1.name}!")
-            
-            choice = True
+    replay = True
+    while replay:
+        choice = False
+        while choice == False:
+            print("Hello Player!")
+            print(f"Which pokemon do you want to use? Here are the stats")
+            print(venasaur)
+            print(charizard)
+            print(blastoise)
+            print(f"{first}, {second}, {third}")
+            p_choice = int(input("Use 0 , 1, or 2 to choose: "))
+            if p_choice < 0 or p_choice > 2:
+                print("This isn't a valid choice!")
+            else:
+                if p_choice == 0:
+                    pokemon1 = venasaur
+                elif p_choice == 1:
+                    pokemon1 = charizard
+                elif p_choice == 2:
+                    pokemon1 = blastoise
+                print(f"You chose {pokemon1.name}!")
+                
+                choice = True
 
-    # computer
-    c_choice = random.randrange(3)
-    if c_choice == p_choice:
-        while c_choice == p_choice:
-            c_choice = random.randrange(3)
-    if c_choice == 0:
-        pokemon2 = venasaur
-    elif c_choice == 1:
-        pokemon2 = charizard
-    elif c_choice == 2:
-        pokemon2 = blastoise
-    stall()
-    print(f"Your opponent choose {pokemon2.name}!")
-    stall(.10,3)
+        # computer
+        c_choice = random.randrange(3)
+        if c_choice == p_choice:
+            while c_choice == p_choice:
+                c_choice = random.randrange(3)
+        if c_choice == 0:
+            pokemon2 = venasaur
+        elif c_choice == 1:
+            pokemon2 = charizard
+        elif c_choice == 2:
+            pokemon2 = blastoise
+        stall()
+        print(f"Your opponent choose {pokemon2.name}!")
+        stall(.10,3)
 
-    # the battle begins!
-    # fastest pokemon goes first
+        # the battle begins!
+        # fastest pokemon goes first
 
-    pokemon1.fight(pokemon1,pokemon2)
+        pokemon1.fight(pokemon1,pokemon2)
 
-    valid = False
-    while not valid:
-        r_choice = input("Do you want to fight again? (Yes/No)\n").lower()
-        if r_choice == "no":
-            replay = False
-            valid = True
-        elif r_choice != "yes":
-            print ("This isn't a valid choice!")
-        else:
-            valid = True
+        valid = False
+        while not valid:
+            r_choice = input("Do you want to fight again? (Yes/No)\n").lower()
+            if r_choice == "no":
+                replay = False
+                valid = True
+            elif r_choice != "yes":
+                print ("This isn't a valid choice!")
+            else:
+                valid = True
 
 
 
