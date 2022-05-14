@@ -187,7 +187,7 @@ class Pokemon:
         elif pokemon2.hp <= 0:
             print("Oh wait!")
             self.stall(int(.5))
-            print(f"{pokemon2.name} Fainted! \n\n You win! \n\n")
+            print(f"{pokemon2.name} Fainted! \n\n \n    You win! \n\n")
             return  print("Till next time!...")
         else:
             print(f"{pokemon1.name}'s HP is: {pokemon1.hp}\n{pokemon2.name}'s HP is: {pokemon2.hp}")
@@ -273,8 +273,28 @@ if __name__ == "__main__":
             if r_choice == "no":
                 replay = False
                 valid = True
-            elif r_choice != "yes":
-                print ("This isn't a valid choice!")
+                df = pd.read_csv("Pokemons.csv")
+                df2 = pd.read_csv("Pokemon_Moves.csv")
+                stats = pd.read_csv("Pokemons.csv")
+                display_question = input("""Would you like to see each pokemons
+stats and moves? 
+If so enter Yes, if not enter No \n""")
+                if display_question == 'Yes':
+                    hp_display = stats.plot.bar(x = "Name", y = "HP")
+                    atk_display =stats.plot.bar(x = "Name", y = "Atk")
+                    def_display = stats.plot.bar(x = "Name", y = "Def")
+                    spe_display = stats.plot.bar(x = "Name", y = "Spe")
+                    print ("Here are the HP values", hp_display)
+                    print ("Here are the Atk values", atk_display)
+                    print ("Here are the Def values", def_display)
+                    print ("Here are the Speed values", spe_display)
+                    print ("Venasaur's data:\n" ,df2.loc[[0,1,2,3]])
+                    print ("Charizard's data: \n",df2.loc[[4,5,6,7]])
+                    print ("Blastoise's data: \n",df2.loc[[8,9,10,11]])
+                elif display_question == 'No':
+                    pass
+                else:
+                    raise ValueError("Please enter 'Yes or 'No")
             else:
                 valid = True
             
@@ -282,32 +302,3 @@ if __name__ == "__main__":
 
 
 
-
-
-#this should be a method within the pokemon class itself 
-#Commenting out the pandas DF, will add it in once we wrap up main function
-"""df = pd.read_csv("Pokemons.csv")
-stats = pd.read_csv("Pokemons.csv")
-display_question = input("Would you like to see a visual of each pokemons stats? If so enter YES, if enter No")
-if display_question == 'Yes':
-    print ("Here are the HP values", stats.plot.bar(x = "Name", y = "HP", color = 'r'))
-    print ("Here are the Atk values", stats.plot.bar(x = "Name", y = "Atk", colormap = 'Paired'))
-    print ("Here are the Def values", stats.plot.bar(x = "Name", y = "Def"))
-    print ("Here are the Speed values", stats.plot.bar(x = "Name", y = "Spe", color = 'y'))
-elif display_question == 'No':
-    pass
-else:
-    raise ValueError("Please enter 'Yes or 'No")
-    
-df2 = pd.read_csv("Pokemon_Moves.csv")
-userinput = input("Which pokemons moves would you like to see? Enter 1,2 or 3 to see Venasaur,Charizard or Blastoise's moves")
-if userinput == '1':
-     print ("Venasaur's data:\n" ,df2.loc[[0,1,2,3]])
-elif userinput == '2':
-     print ("Charizard's data: \n",df2.loc[[4,5,6,7]])
-elif userinput == '3':
-     print ("Blastoise's data: \n",df2.loc[[8,9,10,11]])
-else:
-    raise ValueError("Please enter a value 1-3 to see the pokemons stats")"""
-
-print("Thank you for playing!")
