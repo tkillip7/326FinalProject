@@ -7,21 +7,23 @@ import matplotlib.pyplot as plt
 
 
 class Pokemon:
-    """_summary_
+    """Creates pokemon objects. Also starts the Pokemon battle between the 
+    player and the computer
     """
 
     def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe):
-        """_summary_
+        """Creates dataframe from csv files. Filters it to find information
+        regarding the pokemon along with their moves
 
         Args:
-            name (_type_): _description_
-            dex_id (_type_): _description_
-            type1 (_type_): _description_
-            type2 (_type_): _description_
-            hp (_type_): _description_
-            atk (_type_): _description_
-            defence (_type_): _description_
-            spe (_type_): _description_
+            name (string): string name of the pokemon read from csv
+            dex_id (int): pokedex number for each pokemon
+            type1 (string): string of the first type for each pokemon
+            type2 (string): string of pokemons second type if applicable
+            hp (int): int health value for each pokemon
+            atk (int): int attack value for each pokemon
+            defence (int): defense value for each pokemon
+            spe (int): speed value for each of the pokemon
         """
         self.name = name
         self.dex_id = dex_id
@@ -54,15 +56,27 @@ class Pokemon:
             self.moves = blastoise_moves
 
     def __str__(self):
-        """_summary_
+        """Converts Pokemon class object into a string, then returns it
 
         Returns:
-            _type_: _description_
+            _type_: Returns pokemon object as a string, containing all stats
+            along with typing
         """
         return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
     def fight(self, Pokemon1, Pokemon2):
-        
+        """Main fight function, finishes move creation and checks to see
+        which Pokemon goes first to attack. Afterwards, player and computer
+        choose moves until the HP of 1 Pokemon hits 0.
+
+        Args:
+            Pokemon1 (_type_): _description_
+            Pokemon2 (_type_): _description_
+
+        Raises:
+            ValueError: Raises value error if string was unable to be parsed 
+            through using Regex
+        """    
         regex = (r"""(?xm)
                 ^
                 (?P<dex_Id>[\d+])
@@ -211,6 +225,8 @@ class Pokemon:
             print('.')
             dots -= 1
     def compare(self):
+        """_summary_
+        """        
         if pokemon1.hp <=0 or pokemon2.hp <=0:
             df = pd.read_csv("Pokemons.csv")
             df2 = pd.read_csv("Pokemon_Moves.csv")
