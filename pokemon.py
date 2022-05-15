@@ -121,7 +121,8 @@ class Pokemon:
                     
                     self.stall(int(.5))
                     print(f"Turn {turns}!")
-                    self.statuses()   
+                    self.statuses()
+                    self.compare()
                 else:
                     print(f"{Pokemon2.name} goes first!")
                     self.stall(int(.5))
@@ -137,6 +138,7 @@ class Pokemon:
                     self.stall(int(.5))
                     print(f"Turn {turns}!")
                     self.statuses()   
+                    self.compare()
                     
             #all proceeding turn conditions        
             if next_turn == 1:
@@ -152,7 +154,8 @@ class Pokemon:
                 
                 self.stall(int(.15))
                 print(f"Turn {turns}!")
-                self.statuses()   
+                self.statuses()  
+                self.compare()
                 
             elif next_turn == 2:
                 
@@ -171,6 +174,7 @@ class Pokemon:
                 self.stall(int(.15))
                 print(f"Turn {turns}!")
                 self.statuses()   
+                self.compare()
          
             
     def statuses(self):
@@ -206,6 +210,30 @@ class Pokemon:
             sleep(int(delay)) #in seconds
             print('.')
             dots -= 1
+    def compare(self):
+        if pokemon1.hp <=0 or pokemon2.hp <=0:
+            df = pd.read_csv("Pokemons.csv")
+            df2 = pd.read_csv("Pokemon_Moves.csv")
+            stats = pd.read_csv("Pokemons.csv")
+            display_question = input("""Would you like to see each Pokemon's
+stats and moves? 
+If so enter Yes, if not enter No \n""")
+            if display_question == 'Yes':
+                hp_display = stats.plot.bar(x = "Name", y = "HP")
+                atk_display =stats.plot.bar(x = "Name", y = "Atk")
+                def_display = stats.plot.bar(x = "Name", y = "Def")
+                spe_display = stats.plot.bar(x = "Name", y = "Spe")
+                print ("Here are the HP values", hp_display)
+                print ("Here are the Atk values", atk_display)
+                print ("Here are the Def values", def_display)
+                print ("Here are the Speed values", spe_display)
+                print ("Venasaur's data:\n" ,df2.loc[[0,1,2,3]])
+                print ("Charizard's data: \n",df2.loc[[4,5,6,7]])
+                print ("Blastoise's data: \n",df2.loc[[8,9,10,11]])
+            elif display_question == 'No':
+                pass
+            else:
+                raise ValueError("Please enter 'Yes or 'No")
            
 if __name__ == "__main__":
 
@@ -273,28 +301,6 @@ if __name__ == "__main__":
             if r_choice == "no":
                 replay = False
                 valid = True
-                df = pd.read_csv("Pokemons.csv")
-                df2 = pd.read_csv("Pokemon_Moves.csv")
-                stats = pd.read_csv("Pokemons.csv")
-                display_question = input("""Would you like to see each pokemons
-stats and moves? 
-If so enter Yes, if not enter No \n""")
-                if display_question == 'Yes':
-                    hp_display = stats.plot.bar(x = "Name", y = "HP")
-                    atk_display =stats.plot.bar(x = "Name", y = "Atk")
-                    def_display = stats.plot.bar(x = "Name", y = "Def")
-                    spe_display = stats.plot.bar(x = "Name", y = "Spe")
-                    print ("Here are the HP values", hp_display)
-                    print ("Here are the Atk values", atk_display)
-                    print ("Here are the Def values", def_display)
-                    print ("Here are the Speed values", spe_display)
-                    print ("Venasaur's data:\n" ,df2.loc[[0,1,2,3]])
-                    print ("Charizard's data: \n",df2.loc[[4,5,6,7]])
-                    print ("Blastoise's data: \n",df2.loc[[8,9,10,11]])
-                elif display_question == 'No':
-                    pass
-                else:
-                    raise ValueError("Please enter 'Yes or 'No")
             else:
                 valid = True
             
