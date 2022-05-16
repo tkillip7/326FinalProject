@@ -112,7 +112,7 @@ class Pokemon:
             moves_attributes = re.search(regex, i)
             
             if  moves_attributes == None:
-                    raise ValueError("The address string could not be parsed.")
+                    raise ValueError("The string could not be matched.")
             else:
                 dex_id = int(moves_attributes.group(1))
                 move = (moves_attributes.group(2)).lower()
@@ -134,6 +134,7 @@ class Pokemon:
             #first turn conditions
             if turns == 1:
                 if Pokemon1.spe > Pokemon2.spe:
+                    print(f"Turn {turns}!")
                     print(f"{Pokemon1.name} goes first! pick a move: {Pokemon1.moves}")
                     move = (input("Type the move: ")).lower()
                     
@@ -142,31 +143,26 @@ class Pokemon:
                     
                     next_turn = 2
                     turns += 1
-                    
-                    self.stall(int(.5))
-                    print(f"Turn {turns}!")
                     self.statuses()
                     self.compare()
                 else:
+                    print(f"Turn {turns}!")
                     print(f"{Pokemon2.name} goes first!")
-                    self.stall(int(.5))
+                    self.stall(int("1"))
                     choice = (str(random.choice(list(moves_dict[pokemon2.dex_id])))).lower()
-                    
+                     
                     print(f"{Pokemon2.name} chose {choice}!")
                     damage = ((moves_dict[pokemon2.dex_id])[choice])[1]
                     pokemon1.hp -= damage
                     
                     next_turn = 1
                     turns += 1
-                    
-                    self.stall(int(.5))
-                    print(f"Turn {turns}!")
                     self.statuses()   
                     self.compare()
                     
             #all proceeding turn conditions        
             if next_turn == 1:
-                
+                print(f"Turn {turns}!")
                 print(f"{Pokemon1.name}'s turn! pick a move: {Pokemon1.moves}")
                 move = (input("Type the move: ")).lower()
                 
@@ -176,17 +172,15 @@ class Pokemon:
                 next_turn = 2
                 turns += 1
                 
-                self.stall(int(.15))
-                print(f"Turn {turns}!")
                 self.statuses()  
                 self.compare()
                 
             elif next_turn == 2:
-                
+                print(f"Turn {turns}!")
                 print(f"{Pokemon2.name}'s turn!")
                 choice = (str(random.choice(list(moves_dict[Pokemon2.dex_id])))).lower()
                 
-                self.stall(int(.5))
+                self.stall(int("1"))
                 
                 print(f"{Pokemon2.name} chooses {choice}!")
                 damage = ((moves_dict[Pokemon2.dex_id])[str(choice)])[1]
@@ -194,9 +188,7 @@ class Pokemon:
                 
                 turns += 1
                 next_turn = 1
-                
-                self.stall(int(.15))
-                print(f"Turn {turns}!")
+
                 self.statuses()   
                 self.compare()
          
@@ -210,12 +202,12 @@ class Pokemon:
         """
         if pokemon1.hp <= 0:
             print("Oh no!")
-            self.stall(int(.5))
+            self.stall(int(1))
             print(f"{pokemon1.name} Fainted! \n\n the player lost! \n\n")
             return print("Better luck next time...")
         elif pokemon2.hp <= 0:
             print("Oh wait!")
-            self.stall(int(.5))
+            self.stall(int(1))
             print(f"{pokemon2.name} Fainted! \n\n \n    You win! \n\n")
             return  print("Till next time!...")
         else:
@@ -233,7 +225,7 @@ class Pokemon:
          Side Effects:
             Prints dots between each line
         """
-
+        
         while dots !=0:
             sleep(int(delay)) #in seconds
             print('.')
@@ -298,8 +290,8 @@ if __name__ == "__main__": #Primary Author(s): Vinny | Secondary Author(s): Guil
             print(charizard)
             print(blastoise)
             print("---------------------------------------------------------")
-            print(f"{first}, {second}, {third}")
-            p_choice = int(input("\nUse 0 , 1, or 2 to choose respectively: "))
+            print(f"{first}, {second}, {third} or compare pokemon")
+            p_choice = int(input("\nUse 0 , 1, or 2 to choose respectively:"))
             if p_choice < 0 or p_choice > 2:
                 print("This isn't a valid choice!")
             else:
@@ -326,24 +318,24 @@ if __name__ == "__main__": #Primary Author(s): Vinny | Secondary Author(s): Guil
             pokemon2 = blastoise
         Pokemon.stall()
         print(f"Your opponent chose {pokemon2.name}!")
-        Pokemon.stall(.10,3)
+        Pokemon.stall()
 
         # the battle begins!
         # fastest pokemon goes first
 
         pokemon1.fight(pokemon1,pokemon2)
-
+        
         valid = False
         while not valid:
             r_choice = (input("Do you want to fight again? (Yes/No)\n\n")).lower()
             if r_choice == "no":
                 replay = False
                 valid = True
+                print("\nThanks for playing!")
             if r_choice == "yes":
                 replay = True
                 valid = True
-            else :
-                print(f"{r_choice} was not an option")
+                print("\nLets go!")
 
 
 
