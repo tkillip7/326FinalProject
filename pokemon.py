@@ -10,15 +10,20 @@ class Pokemon:
     """Creates pokemon objects. Also starts the Pokemon battle between the 
     player and the computer.
 
-    Our project aims to provide our user with a working battle simulation that mimics that of Pokemon. 
-    The objective of the game is to choose 1 Pokemon out of the 3 given and battle with the opponent. 
-    Each user will use a Pokemon’s given moveset of 4 moves to battle with the opponent, dealing damage over time with a move. 
-    The winner is decided if the opponent’s Pokemon’s HP (Health Points) drops down to 0. 
+    Our project aims to provide our user with a working battle simulation that 
+    mimics that of Pokemon. 
+    The objective of the game is to choose 1 Pokemon out of the 3 given and 
+    battle with the opponent. 
+    Each user will use a Pokemon’s given moveset of 4 moves to battle with the 
+    opponent, dealing damage over time with a move. 
+    The winner is decided if the opponent’s Pokemon’s HP (Health Points) drops 
+    down to 0. 
     At the end of each turn, it will display each Pokemon’s remaining HP.
     """
     #Primary Author for Pokemon_Moves.csv and Pokemons.csv: Vinny
 
-    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe): #Primary Author(s): Trinity
+    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe): 
+        #Primary Author(s): Trinity
         """Creates dataframe from csv files. Filters it to find information
         regarding the pokemon along with their moves
 
@@ -71,7 +76,8 @@ class Pokemon:
         """
         return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
-    def fight(self, Pokemon1, Pokemon2): #Primary Author(s):Daniel, Trinity  | Secondary Author(s): Vinny
+    def fight(self, Pokemon1, Pokemon2): #Primary Author(s):Daniel, Trinity  
+        # Secondary Author(s): Vinny
         """Main fight function, finishes move creation and checks to see
         which Pokemon goes first to attack. Afterwards, player and computer
         choose moves until the HP of 1 Pokemon hits 0.
@@ -85,7 +91,8 @@ class Pokemon:
             through using Regex
 
          Side Effects:
-            Prints the available move choices for the chosen Pokemon and the Turn order
+            Prints the available move choices for the chosen Pokemon and the 
+            Turn order
         """    
         regex = (r"""(?xm)
                 ^
@@ -202,11 +209,15 @@ class Pokemon:
          
             
     def statuses(self): #Primary Author(s): Daniel
-        """Reads the Pokemon to detect what HP (HealthPoints) a Pokemon currently has. At the end of every turn, it will display the HP of each Pokemon. 
-        If any of the pokemon have HP that is less than 0, it will end the battle and print the winner. 
+        """Reads the Pokemon to detect what HP (HealthPoints) a Pokemon 
+        currently has. At the end of every turn, it will display the HP of each
+        Pokemon. 
+        If any of the pokemon have HP that is less than 0, it will end the 
+        battle and print the winner. 
 
         Side Effects:
-            Prints the victory or loss statement and Prints the HP of each Pokemon
+            Prints the victory or loss statement and Prints the HP of each 
+            Pokemon
         """
         if pokemon1.hp <= 0:
             print("Oh no!")
@@ -223,8 +234,10 @@ class Pokemon:
             print("---------------------------------------------------------")
                
 
-    def stall(delay = 1, dots = 4): #Primary Author(s): Daniel | Secondary Author(s): Vinny
-        """This is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions. We eparate some turns using periods
+    def stall(delay = 1, dots = 4): #Primary Author(s): Daniel 
+        #Secondary Author(s): Vinny
+        """This is to create the feeling of facing an actual player. A slight 
+        wait inbetween turns/decisions. We eparate some turns using periods
 
         Args:
             delay (int): Defaults to 1.
@@ -239,7 +252,7 @@ class Pokemon:
             print('.')
             dots -= 1
 
-    def compare(self): #Primary Author(s): Guillermo | Secondary Author(s): Vinny
+    def compare(self): #Primary Author(s): Guillermo | Secondary Author(s):Vinny
         """reads the CSVs and displays the data on each Pokemon
         
         
@@ -250,7 +263,9 @@ class Pokemon:
         if pokemon1.hp <=0 or pokemon2.hp <=0:
             df2 = pd.read_csv("Pokemon_Moves.csv")
             stats = pd.read_csv("Pokemons.csv")
-            display_question = (input("""\nWould you like to see each Pokemon's stats and moves? If so enter Yes, if not enter No.\n""")).lower()
+            display_question = (input("""\n
+Would you like to see each Pokemon's stats and moves?
+If so enter Yes, if not enter No.\n""")).lower()
             if display_question == 'yes':
                 hp_display = stats.plot.bar(x = "Name", y = "HP")
                 atk_display =stats.plot.bar(x = "Name", y = "Atk")
@@ -269,14 +284,16 @@ class Pokemon:
                 raise ValueError("\nPlease enter 'Yes or 'No\n")
            
 
-if __name__ == "__main__": #Primary Author(s): Vinny | Secondary Author(s): Guillermo
+if __name__ == "__main__": #Primary Author(s): Vinny | 
+    #Secondary Author(s): Guillermo
     
     """Runs the fight. 
     Gives user input for Pokemon choice. 
     Gives user input to replay the fight
 
      Side Effects:
-            Prints the introduction of the game and user input directions such as Pokemon choice and if they want to fight again.
+            Prints the introduction of the game and user input directions such 
+            as Pokemon choice and if they want to fight again.
     """
 
     replay = True
