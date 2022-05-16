@@ -264,7 +264,8 @@ class Pokemon:
             else:
                 raise ValueError("\nPlease enter 'Yes or 'No\n")
            
-def main(): #Primary Author(s): Vinny | Secondary Author(s): Guillermo
+
+if __name__ == "__main__": #Primary Author(s): Vinny | Secondary Author(s): Guillermo
     
     """Runs the fight. 
     Gives user input for Pokemon choice. 
@@ -342,6 +343,6 @@ def main(): #Primary Author(s): Vinny | Secondary Author(s): Guillermo
                 valid = True
             
 
-if __name__ == "__main__": 
-    main()
+
+
 
