@@ -241,9 +241,13 @@ class Pokemon:
 
     def compare(self): #Primary Author(s): Guillermo | Secondary Author(s): Vinny
         """reads the CSVs and displays the data on each Pokemon
+        
+        
+        Side Effects:
+            Prints question with user input along with plots and data read
+            from the Pokemon and Pokemon moves csv.
         """        
         if pokemon1.hp <=0 or pokemon2.hp <=0:
-            df = pd.read_csv("Pokemons.csv")
             df2 = pd.read_csv("Pokemon_Moves.csv")
             stats = pd.read_csv("Pokemons.csv")
             display_question = (input("""\nWould you like to see each Pokemon's stats and moves? If so enter Yes, if not enter No.\n""")).lower()
