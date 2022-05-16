@@ -18,7 +18,7 @@ class Pokemon:
     """
     #Primary Author for Pokemon_Moves.csv and Pokemons.csv: Vinny
 
-    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe): #Primary Author(s): | Secondary Author(s): 
+    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe): #Primary Author(s): Trinity
         """Creates dataframe from csv files. Filters it to find information
         regarding the pokemon along with their moves
 
@@ -62,7 +62,7 @@ class Pokemon:
             blastoise_moves = b_moves_filter["Move_Name"].tolist()
             self.moves = blastoise_moves
 
-    def __str__(self): #Primary Author(s): | Secondary Author(s):
+    def __str__(self): #Primary Author(s): Trinity
         """Converts Pokemon class object into a string, then returns it
 
         Returns:
@@ -71,7 +71,7 @@ class Pokemon:
         """
         return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
-    def fight(self, Pokemon1, Pokemon2): #Primary Author(s): | Secondary Author(s): Vinny
+    def fight(self, Pokemon1, Pokemon2): #Primary Author(s):Daniel, Trinity  | Secondary Author(s): Vinny
         """Main fight function, finishes move creation and checks to see
         which Pokemon goes first to attack. Afterwards, player and computer
         choose moves until the HP of 1 Pokemon hits 0.
@@ -201,7 +201,7 @@ class Pokemon:
                 self.compare()
          
             
-    def statuses(self): #Primary Author(s): | Secondary Author(s): 
+    def statuses(self): #Primary Author(s): Daniel
         """Reads the Pokemon to detect what HP (HealthPoints) a Pokemon currently has. At the end of every turn, it will display the HP of each Pokemon. 
         If any of the pokemon have HP that is less than 0, it will end the battle and print the winner. 
 
@@ -223,7 +223,7 @@ class Pokemon:
             print("---------------------------------------------------------")
                
 
-    def stall(delay = 1, dots = 4): #Primary Author(s): | Secondary Author(s): Vinny
+    def stall(delay = 1, dots = 4): #Primary Author(s): Daniel | Secondary Author(s): Vinny
         """This is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions. We eparate some turns using periods
 
         Args:
@@ -246,8 +246,8 @@ class Pokemon:
             df = pd.read_csv("Pokemons.csv")
             df2 = pd.read_csv("Pokemon_Moves.csv")
             stats = pd.read_csv("Pokemons.csv")
-            display_question = input("""\nWould you like to see each Pokemon's stats and moves? If so enter Yes, if not enter No.\n""")
-            if display_question == 'Yes':
+            display_question = (input("""\nWould you like to see each Pokemon's stats and moves? If so enter Yes, if not enter No.\n""")).lower()
+            if display_question == 'yes':
                 hp_display = stats.plot.bar(x = "Name", y = "HP")
                 atk_display =stats.plot.bar(x = "Name", y = "Atk")
                 def_display = stats.plot.bar(x = "Name", y = "Def")
@@ -259,7 +259,7 @@ class Pokemon:
                 print ("\nVenasaur's data:\n" ,df2.loc[[0,1,2,3]])
                 print ("\nCharizard's data: \n",df2.loc[[4,5,6,7]])
                 print ("\nBlastoise's data: \n",df2.loc[[8,9,10,11]])
-            elif display_question == 'No':
+            elif display_question == 'no':
                 pass
             else:
                 raise ValueError("\nPlease enter 'Yes or 'No\n")
@@ -335,14 +335,15 @@ if __name__ == "__main__": #Primary Author(s): Vinny | Secondary Author(s): Guil
 
         valid = False
         while not valid:
-            r_choice = input("Do you want to fight again? (Yes/No)\n\n").lower()
+            r_choice = (input("Do you want to fight again? (Yes/No)\n\n")).lower()
             if r_choice == "no":
                 replay = False
                 valid = True
-            else:
+            if r_choice == "yes":
+                replay = True
                 valid = True
-            
-
+            else :
+                print(f"{r_choice} was not an option")
 
 
 
