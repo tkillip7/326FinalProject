@@ -16,8 +16,9 @@ class Pokemon:
     The winner is decided if the opponent’s Pokemon’s HP (Health Points) drops down to 0. 
     At the end of each turn, it will display each Pokemon’s remaining HP.
     """
+    #Primary Author for Pokemon_Moves.csv and Pokemons.csv: Vinny
 
-    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe):
+    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe): #Primary Author(s): | Secondary Author(s): 
         """Creates dataframe from csv files. Filters it to find information
         regarding the pokemon along with their moves
 
@@ -61,7 +62,7 @@ class Pokemon:
             blastoise_moves = b_moves_filter["Move_Name"].tolist()
             self.moves = blastoise_moves
 
-    def __str__(self):
+    def __str__(self): #Primary Author(s): | Secondary Author(s):
         """Converts Pokemon class object into a string, then returns it
 
         Returns:
@@ -70,7 +71,7 @@ class Pokemon:
         """
         return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
-    def fight(self, Pokemon1, Pokemon2):
+    def fight(self, Pokemon1, Pokemon2): #Primary Author(s): | Secondary Author(s): Vinny
         """Main fight function, finishes move creation and checks to see
         which Pokemon goes first to attack. Afterwards, player and computer
         choose moves until the HP of 1 Pokemon hits 0.
@@ -82,6 +83,9 @@ class Pokemon:
         Raises:
             ValueError: Raises value error if string was unable to be parsed 
             through using Regex
+
+         Side Effects:
+            Prints the available move choices for the chosen Pokemon and the Turn order
         """    
         regex = (r"""(?xm)
                 ^
@@ -197,12 +201,12 @@ class Pokemon:
                 self.compare()
          
             
-    def statuses(self):
+    def statuses(self): #Primary Author(s): | Secondary Author(s): 
         """Reads the Pokemon to detect what HP (HealthPoints) a Pokemon currently has. At the end of every turn, it will display the HP of each Pokemon. 
         If any of the pokemon have HP that is less than 0, it will end the battle and print the winner. 
 
-        Returns:
-            _type_: _description_
+        Side Effects:
+            Prints the victory or loss statement and Prints the HP of each Pokemon
         """
         if pokemon1.hp <= 0:
             print("Oh no!")
@@ -219,26 +223,30 @@ class Pokemon:
             print("---------------------------------------------------------")
                
 
-    def stall(delay = 1, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
+    def stall(delay = 1, dots = 4): #Primary Author(s): | Secondary Author(s): Vinny
         """This is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions. We eparate some turns using periods
 
         Args:
             delay (int): Defaults to 1.
             dots (int):  Defaults to 4.
+        
+         Side Effects:
+            Prints dots between each line
         """
 
         while dots !=0:
             sleep(int(delay)) #in seconds
             print('.')
             dots -= 1
-    def compare(self):
+
+    def compare(self): #Primary Author(s): Guillermo | Secondary Author(s): Vinny
         """reads the CSVs and displays the data on each Pokemon
         """        
         if pokemon1.hp <=0 or pokemon2.hp <=0:
             df = pd.read_csv("Pokemons.csv")
             df2 = pd.read_csv("Pokemon_Moves.csv")
             stats = pd.read_csv("Pokemons.csv")
-            display_question = input("""Would you like to see each Pokemon's stats and moves? If so enter Yes, if not enter No \n""")
+            display_question = input("""\nWould you like to see each Pokemon's stats and moves? If so enter Yes, if not enter No.\n""")
             if display_question == 'Yes':
                 hp_display = stats.plot.bar(x = "Name", y = "HP")
                 atk_display =stats.plot.bar(x = "Name", y = "Atk")
@@ -248,15 +256,23 @@ class Pokemon:
                 print ("Here are the Atk values", atk_display)
                 print ("Here are the Def values", def_display)
                 print ("Here are the Speed values", spe_display)
-                print ("Venasaur's data:\n" ,df2.loc[[0,1,2,3]])
-                print ("Charizard's data: \n",df2.loc[[4,5,6,7]])
-                print ("Blastoise's data: \n",df2.loc[[8,9,10,11]])
+                print ("\nVenasaur's data:\n" ,df2.loc[[0,1,2,3]])
+                print ("\nCharizard's data: \n",df2.loc[[4,5,6,7]])
+                print ("\nBlastoise's data: \n",df2.loc[[8,9,10,11]])
             elif display_question == 'No':
                 pass
             else:
-                raise ValueError("Please enter 'Yes or 'No")
+                raise ValueError("\nPlease enter 'Yes or 'No\n")
            
-if __name__ == "__main__":
+if __name__ == "__main__": #Primary Author(s): Vinny | Secondary Author(s): Guillermo
+    
+    """Runs the fight. 
+    Gives user input for Pokemon choice. 
+    Gives user input to replay the fight
+
+     Side Effects:
+            Prints the introduction of the game and user input directions such as Pokemon choice and if they want to fight again.
+    """
 
     replay = True
     while replay:
