@@ -8,7 +8,13 @@ import matplotlib.pyplot as plt
 
 class Pokemon:
     """Creates pokemon objects. Also starts the Pokemon battle between the 
-    player and the computer
+    player and the computer.
+
+    Our project aims to provide our user with a working battle simulation that mimics that of Pokemon. 
+    The objective of the game is to choose 1 Pokemon out of the 3 given and battle with the opponent. 
+    Each user will use a Pokemon’s given moveset of 4 moves to battle with the opponent, dealing damage over time with a move. 
+    The winner is decided if the opponent’s Pokemon’s HP (Health Points) drops down to 0. 
+    At the end of each turn, it will display each Pokemon’s remaining HP.
     """
 
     def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe):
@@ -70,8 +76,8 @@ class Pokemon:
         choose moves until the HP of 1 Pokemon hits 0.
 
         Args:
-            Pokemon1 (_type_): _description_
-            Pokemon2 (_type_): _description_
+            Pokemon1 (str): Pokemon chosen by the player
+            Pokemon2 (str): Pokemon chosen by the computer
 
         Raises:
             ValueError: Raises value error if string was unable to be parsed 
@@ -192,7 +198,8 @@ class Pokemon:
          
             
     def statuses(self):
-        """_summary_
+        """Reads the Pokemon to detect what HP (HealthPoints) a Pokemon currently has. At the end of every turn, it will display the HP of each Pokemon. 
+        If any of the pokemon have HP that is less than 0, it will end the battle and print the winner. 
 
         Returns:
             _type_: _description_
@@ -213,11 +220,11 @@ class Pokemon:
                
 
     def stall(delay = 1, dots = 4): #this is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions.
-        """_summary_
+        """This is to create the feeling of facing an actual player. A slight wait inbetween turns/decisions. We eparate some turns using periods
 
         Args:
-            delay (int, optional): _description_. Defaults to 1.
-            dots (int, optional): _description_. Defaults to 4.
+            delay (int): Defaults to 1.
+            dots (int):  Defaults to 4.
         """
 
         while dots !=0:
@@ -225,15 +232,13 @@ class Pokemon:
             print('.')
             dots -= 1
     def compare(self):
-        """_summary_
+        """reads the CSVs and displays the data on each Pokemon
         """        
         if pokemon1.hp <=0 or pokemon2.hp <=0:
             df = pd.read_csv("Pokemons.csv")
             df2 = pd.read_csv("Pokemon_Moves.csv")
             stats = pd.read_csv("Pokemons.csv")
-            display_question = input("""Would you like to see each Pokemon's
-stats and moves? 
-If so enter Yes, if not enter No \n""")
+            display_question = input("""Would you like to see each Pokemon's stats and moves? If so enter Yes, if not enter No \n""")
             if display_question == 'Yes':
                 hp_display = stats.plot.bar(x = "Name", y = "HP")
                 atk_display =stats.plot.bar(x = "Name", y = "Atk")
