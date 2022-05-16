@@ -114,7 +114,7 @@ class Pokemon:
                     move = (input("Type the move: ")).lower()
                     
                     damage = ((moves_dict[self.dex_id])[move])[1]
-                    pokemon2.hp -= damage
+                    Pokemon2.hp -= damage
                     
                     next_turn = 2
                     turns += 1
@@ -125,11 +125,11 @@ class Pokemon:
                 else:
                     print(f"{Pokemon2.name} goes first!")
                     self.stall(int(.5))
-                    choice = (str(random.choice(list(moves_dict[pokemon2.dex_id])))).lower()
+                    choice = (str(random.choice(list(moves_dict[Pokemon.dex_id])))).lower()
                     
                     print(f"{Pokemon2.name} chose {choice}!")
-                    damage = ((moves_dict[pokemon2.dex_id])[choice])[1]
-                    pokemon1.hp -= damage
+                    damage = ((moves_dict[Pokemon.dex_id])[choice])[1]
+                    Pokemon.hp -= damage
                     
                     next_turn = 1
                     turns += 1
@@ -145,7 +145,7 @@ class Pokemon:
                 move = (input("Type the move: ")).lower()
                 
                 damage = ((moves_dict[self.dex_id])[move])[1]
-                pokemon2.hp -= damage
+                Pokemon2.hp -= damage
                 
                 next_turn = 2
                 turns += 1
@@ -163,7 +163,7 @@ class Pokemon:
                 
                 print(f"{Pokemon2.name} chooses {choice}!")
                 damage = ((moves_dict[Pokemon2.dex_id])[str(choice)])[1]
-                pokemon1.hp -= damage
+                Pokemon1.hp -= damage
                 
                 turns += 1
                 next_turn = 1
@@ -207,7 +207,7 @@ class Pokemon:
             print('.')
             dots -= 1
            
-if __name__ == "__main__":
+def main():
 
     replay = True
     while replay:
