@@ -33,13 +33,12 @@ fully see the graphs created.
 
 Trinity: 
 
-Daniel: In the fight method, Daniel took care of the regex that was used to take in the Pokemon_Moves.csv 
-file and created nested dictionaries for each Pokémon. This allowed for easy access to each Pokémon’s each 
-moves and the move’s values.  Daniel also wrote the statuses method and stall method. These methods were 
-to help immerse to the player in hope that it feels like the computer is another player. The stall method 
-uses the sleep() method from the time library[1].
+Daniel: In the fight method, Daniel created the regular expression that was used to take in the Pokemon_Moves.csv file and created nested dictionaries for each Pokémon. This allowed for easy access to each Pokémon’s each 
+moves and the move’s values. I then implemented each captured group through out the fight method.Daniel also wrote the statuses method and stall method. These methods were to help immerse to the player in hope that it feels like the computer is another player. The stall method uses the sleep() method from the time library[1]. These methods were used through out pokemon.py. 
 
-Guillermo:
+Guillermo: Created the compare method used to see information regarding the pokemon moves and stats. Created 
+the data visualizations using both csv files and pandas/matplotlib. This method was used to allow players a 
+closer look at move stats, and a direct comparison for each of the pokemons stat attributes. 
 
 Vinny:
 
