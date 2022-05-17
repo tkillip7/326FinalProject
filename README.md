@@ -1,56 +1,50 @@
-# 326FinalProject
-The purpose of this repository is to hold our teams terminal bassed football game as our final project.   
+This repository is made to hold the semester python project created by: Vinny Tran, Guillermo Ortiz, 
+Trinity Kiilip, and Daniel Gonzalez. (INST326 – 0101)
 
-exercise04012022.py = This file is for an inclass assignment "Exercise: Collaborative programming" which was due on Apr 1, 2022.
+Our team name is Football, although we changed our project idea to a Pokémon player versus computer 
+based game that takes place in the terminal.  
 
-football.py = This file will be our main project. 
-    Current state:
-        04/11/2022: "Skeleton" version for "Final project check-in" assignment due on Apr 15, 2022.
+The user will be given an option on which Pokemon they want to use, while having each Pokemon's stats 
+displayed. The computer will randomly select an opposing pokemon. Both the player and computer will 
+be able to select moves until the HP(Health) of one of the pokemon reaches 0. After that, options to 
+see more detailed stat information and comparisons, along with the ability to replay will be provided.
 
-        # So,
-# We're going to have a 1v1 game, where player chooses a pokemon and computer
-# chooses pokemon.
+The files in our repository and the reason for their inclusion are as follows;
 
-# When we run the program, it'll start like this (refer to turn methods):
+Pokemon_Moves.csv:  This CSV file hold the attributes of each move for each Pokémon we included.
 
-# Hello Human!
-# Please enter your name: (input)
-# What's up (input)!
+Pokemons.csv:       This CSV file holds the attributes for each individual Pokémon we included.
 
-# Computer needs a name!
-# Please enter Computer's name: (input)
-# What's up (input).....
-#
-# Player 1, please choose a pokemon (give a list of names, if name )
-#                                   (isn't valid, tell user to enter again)
-#
-# Based on the input, create a Pokemon object based on that
-#
-# What pokemon will Player 2 have?
-# Based on the input, create a Pokemon object based on that
-#
-#
-# The Pokemon have been selected!
-# It's (Player 1's pokemon) vs (Player 2's pokemon)!
-#
-#
-# Player 1, what move will you choose? Present the pokemon's movelist
-# and have player 1 input what move they want, if playeer misspells or
-# enters a wrong move, tell player that it's not a valid choice
-#
-# Player 2, what move will you choose? Same as player 1 instructions.
-#
-# Whichever pokemon is faster (compare speeds), they attack first
-#
-#
-# Terminal will print, (Player's pokemon) used (move)! (Other player's pokemon)
-# has (health) left!
-#
-# and then same for opposing pokemon, this continues until health is 0
-#
-#
-# Here, we can just display a graph of some sort for pandas just for no reason
-#
-# Then ask user if he wants to reset, if "yes", then reset, else, say "goodbye"
-#
-#
+Pokemon.py:         This file contains the actual python program.
+
+
+To run the code, one you are in the same directory of where all the files are being kept, in the 
+terminal insert and run “python pokemon.py” if on windows or “python3 pokemon.py” if on Mac. From 
+there the program will have instructions on what to do next.
+
+• Clear instructions on how to use your program and/or interpret the output of the program, as applicable
+<<<< >>>>
+
+
+The terminal doesn't display the plots created, so runnning it on Jupyter would be another method to 
+fully see the graphs created.
+
+• Attributions: 
+
+Trinity: 
+
+Daniel: In the fight method, Daniel created the regular expression that was used to take in the Pokemon_Moves.csv file and created nested dictionaries for each Pokémon. This allowed for easy access to each Pokémon’s each 
+moves and the move’s values. I then implemented each captured group through out the fight method.Daniel also wrote the statuses method and stall method. These methods were to help immerse to the player in hope that it feels like the computer is another player. The stall method uses the sleep() method from the time library[1]. These methods were used through out pokemon.py. 
+
+Guillermo: Created the compare method used to see information regarding the pokemon moves and stats. Created 
+the data visualizations using both csv files and pandas/matplotlib. This method was used to allow players a 
+closer look at move stats, and a direct comparison for each of the pokemons stat attributes. 
+
+Vinny:
+
+
+Reference:
+1.	Time. Sleep() in python. (2018, April 10). GeeksforGeeks. https://www.geeksforgeeks.org/sleep-in-python/ 
+2.	
+
+
