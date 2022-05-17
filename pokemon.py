@@ -248,6 +248,9 @@ class Pokemon:
         Side Effects:
             Prints question with user input along with plots and data read
             from the Pokemon and Pokemon moves csv.
+        
+        Raises:
+            ValueError: if user input isn't 'yes' or 'no' a ValueError is raised
         """        
         if pokemon1.hp <=0 or pokemon2.hp <=0:
             df2 = pd.read_csv("Pokemon_Moves.csv")
