@@ -22,8 +22,7 @@ class Pokemon:
     """
     #Primary Author for Pokemon_Moves.csv and Pokemons.csv: Vinny
 
-    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe): 
-        #Primary Author(s): Trinity
+    def __init__(self, name, dex_id, type1, type2, hp, atk, defence, spe): #Primary Author(s): Trinity
         """Creates dataframe from csv files. Filters it to find information
         regarding the pokemon along with their moves
 
@@ -76,8 +75,7 @@ class Pokemon:
         """
         return f"{self.name}, {self.type1}, {self.type2}, HP: {self.hp}, ATK: {self.atk}, SPE: {self.spe}, DEF: {self.defence}"
 
-    def fight(self, Pokemon1, Pokemon2): #Primary Author(s):Daniel, Trinity  
-        # Secondary Author(s): Vinny
+    def fight(self, Pokemon1, Pokemon2): #Primary Author(s):Daniel, Trinity 
         """Main fight function, finishes move creation and checks to see
         which Pokemon goes first to attack. Afterwards, player and computer
         choose moves until the HP of 1 Pokemon hits 0.
@@ -155,7 +153,7 @@ class Pokemon:
                 else:
                     print(f"Turn {turns}!")
                     print(f"{Pokemon2.name} goes first!")
-                    self.stall(int("1"))
+                    self.stall(.5)
                     choice = (str(random.choice(list(moves_dict[pokemon2.dex_id])))).lower()
                      
                     print(f"{Pokemon2.name} chose {choice}!")
@@ -187,7 +185,7 @@ class Pokemon:
                 print(f"{Pokemon2.name}'s turn!")
                 choice = (str(random.choice(list(moves_dict[Pokemon2.dex_id])))).lower()
                 
-                self.stall(int("1"))
+                self.stall(.50)
                 
                 print(f"{Pokemon2.name} chooses {choice}!")
                 damage = ((moves_dict[Pokemon2.dex_id])[str(choice)])[1]
@@ -202,14 +200,12 @@ class Pokemon:
             
     def statuses(self): #Primary Author(s): Daniel
         """Reads the Pokemon to detect what HP (HealthPoints) a Pokemon 
-        currently has. At the end of every turn, it will display the HP of each
-        Pokemon. 
-        If any of the pokemon have HP that is less than 0, it will end the 
+        currently has. At the end of every turn, it will display the HP of each 
+        Pokemon. If any of the pokemon have HP that is less than 0, it will end the 
         battle and print the winner. 
 
         Side Effects:
-            Prints the victory or loss statement and Prints the HP of each 
-            Pokemon
+            Prints the victory or loss statement and Prints the HP of each Pokemon.
         """
         if pokemon1.hp <= 0:
             print("Oh no!")
@@ -226,21 +222,19 @@ class Pokemon:
             print("---------------------------------------------------------")
                
 
-    def stall(delay = 1, dots = 4): #Primary Author(s): Daniel 
-        #Secondary Author(s): Vinny
-        """This is to create the feeling of facing an actual player. A slight 
-        wait inbetween turns/decisions. We eparate some turns using periods
+    def stall(self, num = 1, dots = 4): #Primary Author(s): Daniel
+        """_summary_
 
         Args:
-            delay (int): Defaults to 1.
-            dots (int):  Defaults to 4.
-        
-         Side Effects:
-            Prints dots between each line
+            num (int, optional): Number of seconds to stall. Defaults to 1.
+            dots (int, optional): Number of dots to print. Defaults to 4.
+        Side Effects:
+            prints to terminal.
         """
-        
+
+
         while dots !=0:
-            sleep(int(delay)) #in seconds
+            sleep(num) #in seconds
             print('.')
             dots -= 1
 
@@ -337,9 +331,9 @@ if __name__ == "__main__": #Primary Author(s): Vinny |
             pokemon2 = charizard
         elif c_choice == 2:
             pokemon2 = blastoise
-        Pokemon.stall()
+        Pokemon.stall(Pokemon,.75)
         print(f"Your opponent chose {pokemon2.name}!")
-        Pokemon.stall()
+        Pokemon.stall(Pokemon,.75)
 
         # the battle begins!
         # fastest pokemon goes first
