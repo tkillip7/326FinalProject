@@ -228,6 +228,7 @@ class Pokemon:
         Args:
             num (int, optional): Number of seconds to stall. Defaults to 1.
             dots (int, optional): Number of dots to print. Defaults to 4.
+            
         Side Effects:
             prints to terminal.
         """
@@ -270,8 +271,7 @@ If so enter Yes, if not enter No.\n""")).lower()
                 raise ValueError("\nPlease enter 'Yes or 'No\n")
            
 
-if __name__ == "__main__": #Primary Author(s): Vinny | 
-    #Secondary Author(s): Guillermo
+if __name__ == "__main__": #Primary Author(s): Trinity | #Secondary Author(s): Vinny
     
     """Runs the fight. 
     Gives user input for Pokemon choice. 
