@@ -41,8 +41,10 @@ Guillermo: Created the compare method used to see information regarding the poke
 the data visualizations using both csv files and pandas/matplotlib. This method was used to allow players a 
 closer look at move stats, and a direct comparison for each of the pokemons stat attributes. 
 
-Vinny:
-
+Vinny: In the compare() method, Vinny helped with reading the csv. files while also working on some of the pandas. This helped in comparing 2 Pokemon side-by-side.
+In if name == "main", Vinny made the replay prompt, looping users to input a correct answeer of yes and no. In this function, when replay is true, the Pokemon object's health will be reset when battling again. If replay is false, thr project will end.
+Vinny made Pokemon_Moves.csv and Pokemons.csv files for pandas.
+Made console edits to make the project simulate like a real Pokemonn battle.
 
 Reference:
 1.	Time. Sleep() in python. (2018, April 10). GeeksforGeeks. https://www.geeksforgeeks.org/sleep-in-python/ 
