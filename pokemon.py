@@ -223,7 +223,8 @@ class Pokemon:
                
 
     def stall(self, num = 1, dots = 4): #Primary Author(s): Daniel
-        """_summary_
+        """Used to imitate time passing. Mimics what it might look like when 
+        a player is making a decision
 
         Args:
             num (int, optional): Number of seconds to stall. Defaults to 1.
@@ -239,7 +240,8 @@ class Pokemon:
             dots -= 1
 
     def compare(self): #Primary Author(s): Guillermo | Secondary Author(s):Vinny
-        """reads the CSVs and displays the data on each Pokemon
+        """Reads csv files on pokemon stats and moves. Asks user if they want
+        to see a visual of these stats.
         
         
         Side Effects:
