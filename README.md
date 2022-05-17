@@ -31,11 +31,8 @@ fully see the graphs created.
 
 • Attributions: 
 
-Trinity: Created the initial skeleton to get us started. Used pandas filtering to initialize the Pokemon object based on the two spreadsheets we used. I turned them into different
-dataframes and filtered the Pokemon_Moves to gather a list of moves that only belongs to a certain Pokemon, which was determined with 
-Dex_ID. Designed how we were going to create our Pokemon objects and helped design how the Pokemon battles will go. Added some
-user error prevention. Coded most of the code in main. Also created the str magic method so we can print the Pokemon object and display
-each Pokemon's stats. 
+Trinity: Created the initial skeleton to get us started. Used pandas filtering to initialize the Pokemon object based on the two spreadsheets we used. I turned them into different dataframes and filtered the Pokemon_Moves to gather a list of moves that only belongs to a certain Pokemon, which was determined with Dex_ID. Designed how we were going to create our Pokemon objects and helped design how the Pokemon battles will go. Added some
+user error prevention. Coded most of the code in main. Also created the str magic method so we can print the Pokemon object and displayeach Pokemon's stats. 
 
 Daniel: In the fight method, Daniel created the regular expression that was used to take in the Pokemon_Moves.csv file and created nested dictionaries for each Pokémon. This allowed for easy access to each Pokémon’s each 
 moves and the move’s values. I then implemented each captured group through out the fight method.Daniel also wrote the statuses method and stall method. These methods were to help immerse to the player in hope that it feels like the computer is another player. The stall method uses the sleep() method from the time library[1]. These methods were used through out pokemon.py. 
